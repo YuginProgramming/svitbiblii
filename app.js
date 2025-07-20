@@ -21,17 +21,6 @@ bot.onText(/\/start/, (msg) => {
   bot.sendMessage(chatId, '👋 Вітаю! Щоб побачити першу главу книги, натисни кнопку нижче:', options);
 });
 
-// /text (optional fallback)
-bot.onText(/\/text/, async (msg) => {
-  const chatId = msg.chat.id;
-  try {
-    const chapterText = await getFirstChapterText();
-    bot.sendMessage(chatId, chapterText);
-  } catch (error) {
-    bot.sendMessage(chatId, '❌ ' + error.message);
-  }
-});
-
 // Handle all button clicks
 bot.on('callback_query', async (query) => {
   const chatId = query.message.chat.id;
