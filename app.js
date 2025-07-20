@@ -50,7 +50,7 @@ bot.on('callback_query', async (query) => {
     try {
       const chapterText = await getFirstChapterText();
 
-      // Replace "Psalm 23" with link (Markdown)
+      // Replace "Psalm 23" with link Markdown
       let decorated = chapterText.replace(
         /Psalm 23/g,
         '[Psalm 23](https://svitbiblii.vercel.app/en/home)'
