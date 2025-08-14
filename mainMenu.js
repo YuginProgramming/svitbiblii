@@ -1,0 +1,33 @@
+// mainMenu.js
+const mainMenu = {
+  reply_markup: {
+    keyboard: [
+      [{ text: "Про книгу" }, { text: "Зміст книги" }]
+    ],
+    resize_keyboard: true,
+    one_time_keyboard: false
+  }
+};
+
+/**
+ * Sets up the main menu handlers for the bot
+ * @param {TelegramBot} bot - The Telegram bot instance
+ */
+function setupMainMenu(bot) {
+  // Start command
+  bot.onText(/\/start/, (msg) => {
+    bot.sendMessage(msg.chat.id, "Вітаю! Оберіть опцію:", mainMenu);
+  });
+
+  // Handling button presses (reply keyboard sends text)
+  bot.on("message", (msg) => {
+    if (msg.text === "Про книгу") {
+      bot.sendMessage(msg.chat.id, "Це книга Нового Заповіту...");
+    }
+    if (msg.text === "Зміст книги") {
+      bot.sendMessage(msg.chat.id, "Тут буде зміст книги...");
+    }
+  });
+}
+
+export { mainMenu, setupMainMenu };
