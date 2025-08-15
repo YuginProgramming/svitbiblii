@@ -9,17 +9,7 @@ const mainMenu = {
   }
 };
 
-/**
- * Sets up the main menu handlers for the bot
- * @param {TelegramBot} bot - The Telegram bot instance
- */
-function setupMainMenu(bot) {
-  // Start command
-  bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, "Вітаю! Оберіть опцію:", mainMenu);
-  });
-
-  // Handling button presses (reply keyboard sends text)
+function setupMainMenuHandlers(bot) {
   bot.on("message", (msg) => {
     if (msg.text === "Про книгу") {
       bot.sendMessage(msg.chat.id, "Це книга Нового Заповіту...");
@@ -30,4 +20,4 @@ function setupMainMenu(bot) {
   });
 }
 
-export { mainMenu, setupMainMenu };
+export { mainMenu, setupMainMenuHandlers };

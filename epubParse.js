@@ -1,4 +1,3 @@
-// epubParse.js
 import Epub from 'epub';
 import path from 'path';
 import { fileURLToPath } from 'url';
