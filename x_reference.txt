@@ -1,0 +1,273 @@
+===============================================================================
+                           EPUB BOT REFERENCE GUIDE
+===============================================================================
+
+📚 BOOK STRUCTURE & CONTENT
+===============================================================================
+
+BOOK METADATA:
+- Title: "Новий Завіт EUM backup"
+- Creator: EUM
+- Publisher: Ставропігія Вселенського Патріархату в Україні
+- Language: uk (Ukrainian)
+- Date: 2024-12-17
+- Subject: Religion & Spirituality
+
+CHAPTER STRUCTURE (by index):
+===============================================================================
+
+INDEX 0-4: PRELIMINARY PAGES (NOT ACTUAL CHAPTERS)
+- Index 0: titlepage - titlepage.xhtml (No text found)
+- Index 1: id14 - Preface_split_000.xhtml (Преамбула)
+- Index 2: id13 - Preface_split_001.xhtml (Преамбула)
+- Index 3: id12 - Preface_split_002.xhtml (Преамбула)
+- Index 4: id11 - Preface_split_003.xhtml (Преамбула)
+
+ACTUAL CHAPTERS START FROM INDEX 5:
+===============================================================================
+
+GOSPELS:
+- Index 5:  t001 - OEBPS/Text/01-MAT-001.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 1
+- Index 6:  t002 - OEBPS/Text/01-MAT-002.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 2
+- Index 7:  t003 - OEBPS/Text/01-MAT-003.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 3
+- Index 8:  t004 - OEBPS/Text/01-MAT-004.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 4
+- Index 9:  t005 - OEBPS/Text/01-MAT-005.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 5
+- Index 10: t006 - OEBPS/Text/01-MAT-006.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 6
+- Index 11: t007 - OEBPS/Text/01-MAT-007.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 7
+- Index 12: t008 - OEBPS/Text/01-MAT-008.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 8
+- Index 13: t009 - OEBPS/Text/01-MAT-009.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 9
+- Index 14: t010 - OEBPS/Text/01-MAT-010.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 10
+- Index 15: t011 - OEBPS/Text/01-MAT-011.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 11
+- Index 16: t012 - OEBPS/Text/01-MAT-012.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 12
+- Index 17: t013 - OEBPS/Text/01-MAT-013.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 13
+- Index 18: t014 - OEBPS/Text/01-MAT-014.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 14
+- Index 19: t015 - OEBPS/Text/01-MAT-015.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 15
+- Index 20: t016 - OEBPS/Text/01-MAT-016.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 16
+- Index 21: t017 - OEBPS/Text/01-MAT-017.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 17
+- Index 22: t018 - OEBPS/Text/01-MAT-018.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 18
+- Index 23: t019 - OEBPS/Text/01-MAT-019.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 19
+- Index 24: t020 - OEBPS/Text/01-MAT-020.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 20
+- Index 25: t021 - OEBPS/Text/01-MAT-021.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 21
+- Index 26: t022 - OEBPS/Text/01-MAT-022.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 22
+- Index 27: t023 - OEBPS/Text/01-MAT-023.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 23
+- Index 28: t024 - OEBPS/Text/01-MAT-024.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 24
+- Index 29: t025 - OEBPS/Text/01-MAT-025.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 25
+- Index 30: t026 - OEBPS/Text/01-MAT-026.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 26
+- Index 31: t027 - OEBPS/Text/01-MAT-027.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 28
+- Index 32: t028 - OEBPS/Text/01-MAT-028.xhtml  → ЄВАНГЕЛІЄ ВІД МАТФЕЯ - Розділ 28
+
+MARK GOSPEL (Index 33-48):
+- Index 33: t029 - OEBPS/Text/02-MRK-001.xhtml  → ЄВАНГЕЛІЄ ВІД МАРКА - Розділ 1
+- Index 34: t030 - OEBPS/Text/02-MRK-002.xhtml  → ЄВАНГЕЛІЄ ВІД МАРКА - Розділ 2
+- ... (continues to Index 48)
+
+LUKE GOSPEL (Index 49-72):
+- Index 49: t045 - OEBPS/Text/03-LUK-001.xhtml  → ЄВАНГЕЛІЄ ВІД ЛУКИ - Розділ 1
+- Index 50: t046 - OEBPS/Text/03-LUK-002.xhtml  → ЄВАНГЕЛІЄ ВІД ЛУКИ - Розділ 2
+- ... (continues to Index 72)
+
+JOHN GOSPEL (Index 73-93):
+- Index 73: t069 - OEBPS/Text/04-JHN-001.xhtml  → ЄВАНГЕЛІЄ ВІД ІОАННА - Розділ 1
+- Index 74: t070 - OEBPS/Text/04-JHN-002.xhtml  → ЄВАНГЕЛІЄ ВІД ІОАННА - Розділ 2
+- ... (continues to Index 93)
+
+ACTS (Index 94-121):
+- Index 94: t090 - OEBPS/Text/05-ACT-001.xhtml  → ДІЯННЯ АПОСТОЛІВ - Розділ 1
+- Index 95: t091 - OEBPS/Text/05-ACT-002.xhtml  → ДІЯННЯ АПОСТОЛІВ - Розділ 2
+- ... (continues to Index 121)
+
+EPISTLES (Index 122-265):
+- JAMES (Index 122-126): t118-t122 - OEBPS/Text/06-JAS-001.xhtml to 06-JAS-005.xhtml
+- 1 PETER (Index 127-131): t123-t127 - OEBPS/Text/07-1PE-001.xhtml to 07-1PE-005.xhtml
+- 2 PETER (Index 132-134): t128-t130 - OEBPS/Text/08-2PE-001.xhtml to 08-2PE-003.xhtml
+- 1 JOHN (Index 135-139): t131-t135 - OEBPS/Text/09-1JN-001.xhtml to 09-1JN-005.xhtml
+- 2 JOHN (Index 140): t136 - OEBPS/Text/10-2JN-001.xhtml
+- 3 JOHN (Index 141): t137 - OEBPS/Text/11-3JN-001.xhtml
+- JUDE (Index 142): t138 - OEBPS/Text/12-JUD-001.xhtml
+- ROMANS (Index 143-158): t139-t154 - OEBPS/Text/13-ROM-001.xhtml to 13-ROM-016.xhtml
+- 1 CORINTHIANS (Index 159-174): t155-t170 - OEBPS/Text/14-1CO-001.xhtml to 14-1CO-016.xhtml
+- 2 CORINTHIANS (Index 175-187): t171-t183 - OEBPS/Text/15-2CO-001.xhtml to 15-2CO-013.xhtml
+- GALATIANS (Index 188-193): t184-t189 - OEBPS/Text/16-GAL-001.xhtml to 16-GAL-006.xhtml
+- EPHESIANS (Index 194-199): t190-t195 - OEBPS/Text/17-EPH-001.xhtml to 17-EPH-006.xhtml
+- PHILIPPIANS (Index 200-203): t196-t199 - OEBPS/Text/18-PHP-001.xhtml to 18-PHP-004.xhtml
+- COLOSSIANS (Index 204-207): t200-t203 - OEBPS/Text/19-COL-001.xhtml to 19-COL-004.xhtml
+- 1 THESSALONIANS (Index 208-212): t204-t208 - OEBPS/Text/20-1TH-001.xhtml to 20-1TH-005.xhtml
+- 2 THESSALONIANS (Index 213-215): t209-t211 - OEBPS/Text/21-2TH-001.xhtml to 21-2TH-003.xhtml
+- 1 TIMOTHY (Index 216-221): t212-t217 - OEBPS/Text/22-1TI-001.xhtml to 22-1TI-006.xhtml
+- 2 TIMOTHY (Index 222-225): t218-t221 - OEBPS/Text/23-2TI-001.xhtml to 23-2TI-004.xhtml
+- TITUS (Index 226-228): t222-t224 - OEBPS/Text/24-TIT-001.xhtml to 24-TIT-003.xhtml
+- PHILEMON (Index 229): t225 - OEBPS/Text/25-PHM-001.xhtml
+- HEBREWS (Index 230-242): t226-t238 - OEBPS/Text/26-HEB-001.xhtml to 26-HEB-013.xhtml
+- REVELATION (Index 243-265): t239-t261 - OEBPS/Text/27-REV-001.xhtml to 27-REV-022.xhtml
+
+FINAL PAGES:
+- Index 266: id7 - Resume.xhtml (Технічна інформація)
+
+===============================================================================
+                           BOT ARCHITECTURE
+===============================================================================
+
+FILE STRUCTURE:
+===============================================================================
+app.js                 - Main entry point, /start command handler
+botInstance.js         - Telegram bot instance with API token
+mainMenu.js           - Main menu handlers and UI logic
+navigationHandlers.js  - Chapter navigation logic
+book.epub             - The actual EPUB file (3.7MB)
+package.json          - Dependencies and project config
+README.md             - Project documentation
+x_reference.txt       - This reference file
+
+epub-parser/          - EPUB parsing module (refactored)
+├── index.js              - Main export file
+├── epubLoader.js         - Core EPUB loading and parsing
+├── chapterExtractor.js   - Chapter text extraction and processing
+├── previewGenerator.js   - Preview and verse-specific functionality
+├── tableOfContents.js    - TOC parsing and structure
+└── epubParse.js.backup   - Original file (backup)
+
+KEY FUNCTIONS:
+===============================================================================
+
+epub-parser/ (refactored module):
+- index.js              - Main export file with all functions
+- epubLoader.js         - Core EPUB loading and parsing
+  - loadEpub()           - Loads and caches EPUB instance
+  - getTotalChapters()   - Gets total number of chapters
+  - getChapterInfo()     - Gets basic chapter information
+  - getChapterHTML()     - Gets raw HTML content
+- chapterExtractor.js   - Chapter text extraction and processing
+  - getChapterText()     - Gets plain text of specific chapter
+  - parseChapterContent() - Parses chapter into structured format
+- previewGenerator.js   - Preview and verse-specific functionality
+  - getChapterPreview()  - Gets formatted chapter preview
+  - getChapterPreviewWithVerses() - Gets preview from specific verse
+  - getSpecificVerse()   - Gets specific verse from chapter
+  - getFirstChapterText() - Gets first chapter (DEPRECATED)
+- tableOfContents.js    - TOC parsing and structure
+  - getTableOfContents() - Gets hierarchical TOC structure
+  - getFlatChapterList() - Gets flat list of chapters
+  - getChapterTitle()    - Gets chapter title by index
+
+mainMenu.js:
+- setupMainMenuHandlers(bot) - Sets up main menu button handlers
+- formatTOC(toc, indent) - Formats table of contents for display
+- splitMessage(message, maxLength) - Splits long messages into chunks
+
+navigationHandlers.js:
+- setupNavigationHandlers(bot, userChapterIndex, sendInChunks) - Sets up chapter navigation
+
+app.js:
+- sendInChunks(chatId, text, keyboard) - Helper to send long text in chunks
+
+===============================================================================
+                           USER INTERFACE
+===============================================================================
+
+MAIN MENU BUTTONS:
+===============================================================================
+1. "Про книгу" - Shows book description
+2. "Зміст книги" - Shows hierarchical table of contents
+3. "Євангеліє від Матфея - Розділ 1" - Shows first chapter
+
+NAVIGATION BUTTONS:
+===============================================================================
+- "⬅️ Попередня" - Previous chapter
+- "➡️ Наступна" - Next chapter
+
+START COMMAND FLOW:
+===============================================================================
+1. User sends /start
+2. Bot sets userChapterIndex[chatId] = 5 (first actual chapter)
+3. Shows main menu
+4. Shows "📖 Євангеліє від Матфея - Розділ 1" button
+5. User clicks button → loads chapter 5 content
+
+===============================================================================
+                           DEVELOPMENT NOTES
+===============================================================================
+
+IMPORTANT INDEXES:
+===============================================================================
+- FIRST_ACTUAL_CHAPTER = 5 (Matthew Chapter 1)
+- LAST_CHAPTER = 265 (Revelation Chapter 22)
+- TOTAL_CHAPTERS = 266 (including preliminary pages)
+
+TEXT PROCESSING:
+===============================================================================
+- Max message length: 4000 characters
+- HTML tags are stripped from chapter content
+- <br> and </p> tags are converted to newlines
+- Multiple newlines are normalized to double newlines
+
+ERROR HANDLING:
+===============================================================================
+- "No text found." returned for empty chapters
+- Chapter index validation in getChapterText()
+- Try-catch blocks in all async functions
+
+USER STATE MANAGEMENT:
+===============================================================================
+- userChapterIndex object tracks each user's current chapter
+- Key: chatId, Value: chapter index
+
+FUTURE DEVELOPMENT IDEAS:
+===============================================================================
+1. Add chapter search functionality
+2. Add bookmark system
+3. Add reading progress tracking
+4. Add multiple language support
+5. Add audio chapter support
+6. Add verse-by-verse navigation
+7. Add cross-references
+8. Add note-taking functionality
+9. Add sharing functionality
+10. Add reading statistics
+
+===============================================================================
+                           TROUBLESHOOTING
+===============================================================================
+
+COMMON ISSUES:
+===============================================================================
+1. "No text found" - Check if using correct chapter index (avoid 0-4)
+2. Navigation not working - Check userChapterIndex initialization
+3. Long chapters not displaying - Check sendInChunks function
+4. Bot not responding - Check bot token and internet connection
+
+DEBUGGING TOOLS:
+===============================================================================
+- tempEpub.js - Shows EPUB structure and metadata
+- tempDebug.js - Shows table of contents structure
+- Use console.log() in functions for debugging
+
+===============================================================================
+                           API REFERENCE
+===============================================================================
+
+TELEGRAM BOT API:
+===============================================================================
+- node-telegram-bot-api library
+- Polling mode enabled
+- Inline keyboards for navigation
+- Reply keyboards for main menu
+
+EPUB LIBRARY:
+===============================================================================
+- epub library for parsing
+- adm-zip for ZIP file handling
+- xml2js for XML parsing
+- cheerio for HTML parsing
+
+===============================================================================
+                           VERSION HISTORY
+===============================================================================
+
+v1.0.0 (Current):
+- Fixed chapter indexing issue (0→5 for first chapter)
+- Updated UI text to be more specific
+- Added comprehensive error handling
+- Implemented text chunking for long chapters
+- Added user state management
+
+===============================================================================

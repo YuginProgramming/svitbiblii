@@ -1,0 +1,258 @@
+# DATABASE REFERENCE - EPUB BOT
+=====================================
+
+## 🗄️ DATABASE OVERVIEW
+=======================
+
+### Connection Details:
+- **Host**: [Environment Variable: DB_HOST]
+- **Port**: [Environment Variable: DB_PORT]
+- **Database**: [Environment Variable: DB_NAME]
+- **User**: [Environment Variable: DB_USER]
+- **Password**: [Environment Variable: DB_PASSWORD]
+- **Version**: PostgreSQL 16.9 (Ubuntu 16.9-0ubuntu0.24.04.1)
+
+### Environment Configuration:
+- **File**: .env
+- **ORM**: Sequelize
+- **Driver**: pg (PostgreSQL)
+- **Status**: ✅ Connected and operational
+
+## 📋 EXISTING TABLES
+=====================
+
+### 1. Book Table
+---------------
+**Purpose**: Book catalog and metadata storage
+**Rows**: 15
+**Primary Key**: id (integer, auto-increment)
+
+**Columns:**
+- id: integer NOT NULL (Primary Key)
+- title: varchar NOT NULL
+- author: varchar NULL
+- link: varchar NULL
+- content: text NULL
+- category: varchar NULL
+- format: varchar NULL
+- filePath: varchar NULL
+- slug: varchar NOT NULL DEFAULT ''
+
+**Sample Data:**
+- "Український переклад Біблії (УПБ)" by І. Огієнко
+- "Поліанна" by Елеонор Портер
+- "Листи крутеня" by К.С. Люїc
+
+**Indexes:**
+- Book_pkey (Primary Key)
+
+### 2. Library Table
+------------------
+**Purpose**: Appears to be duplicate/related to Book table
+**Rows**: 15
+**Primary Key**: id (text)
+
+**Columns:**
+- id: text NOT NULL (Primary Key)
+- title: text NOT NULL
+- author: text NULL
+- link: text NULL
+- content: text NULL
+- category: text NULL
+- format: text NULL
+- filePath: text NULL
+- slug: text NOT NULL DEFAULT ''
+
+**Indexes:**
+- Library_pkey (Primary Key)
+- Library_slug_key (Unique)
+- Library_title_key (Unique)
+
+**Note**: Uses text IDs instead of integer IDs like Book table
+
+### 3. User Table
+----------------
+**Purpose**: User management with Clerk authentication
+**Rows**: 3
+**Primary Key**: id (integer, auto-increment)
+
+**Columns:**
+- id: integer NOT NULL (Primary Key)
+- clerkId: varchar NOT NULL (Unique)
+- name: varchar NOT NULL
+- email: varchar NOT NULL
+- role: varchar NOT NULL DEFAULT 'user'
+- createdAt: timestamp NOT NULL DEFAULT now()
+- updatedAt: timestamp NULL
+
+**Sample Users:**
+- [User data available in database - emails redacted for privacy]
+- [3 registered users with Clerk authentication]
+- [Role-based access control implemented]
+
+**Indexes:**
+- User_pkey (Primary Key)
+- User_unique_clerkId (Unique)
+
+### 4. Route Table
+-----------------
+**Purpose**: Route management (currently unused)
+**Rows**: 0
+**Primary Key**: id (integer, auto-increment)
+
+**Columns:**
+- id: integer NOT NULL (Primary Key)
+- name: text NOT NULL
+- startPoint: text NOT NULL
+- endPoint: text NOT NULL
+- distance: double precision NOT NULL
+- createdAt: timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+- updatedAt: timestamp NOT NULL
+
+**Indexes:**
+- Route_pkey (Primary Key)
+
+## 🔧 TECHNICAL DETAILS
+========================
+
+### Database Size: 7988 kB
+
+### Active Connections: 1 (during investigation)
+
+### Installed Libraries:
+- sequelize: ORM for database operations
+- pg: PostgreSQL driver
+- pg-hstore: PostgreSQL hstore support
+- dotenv: Environment variable management
+
+### Configuration Files:
+- .env: Environment variables and credentials
+- database/sequelize.js: Database connection configuration
+- database/investigate.js: Database investigation script
+- database/testConnection.js: Connection testing script
+
+## 🎯 POTENTIAL USES FOR EPUB BOT
+==================================
+
+### Existing Infrastructure:
+1. **Book Catalog**: Can use Book/Library tables for EPUB metadata
+2. **User Management**: Existing User table with Clerk integration
+3. **Content Storage**: content field in Book table for text storage
+4. **File Management**: filePath field for EPUB file locations
+
+### Suggested Bot-Specific Tables:
+1. **BotUsers**: Telegram user tracking
+2. **ReadingProgress**: User reading progress
+3. **Bookmarks**: User bookmarks
+4. **ReadingSessions**: Session tracking
+5. **BotStats**: Analytics and statistics
+
+## 📊 DATA ANALYSIS
+===================
+
+### Content Types:
+- Religious texts (Bible translations)
+- Literature (Pollyanna, Letters)
+- Ukrainian language content
+- Multiple formats supported
+
+### User Base:
+- 3 registered users
+- Clerk authentication system
+- Email-based accounts
+- Role-based access (currently all 'user')
+
+### Database Health:
+- ✅ Proper indexing
+- ✅ Foreign key constraints
+- ✅ Timestamp tracking
+- ✅ Unique constraints
+- ✅ No data corruption detected
+
+## 🚀 INTEGRATION OPPORTUNITIES
+===============================
+
+### With Existing Tables:
+1. **Book Table**: Store EPUB metadata and file paths
+2. **Library Table**: Alternative book catalog
+3. **User Table**: Link Telegram users to existing accounts
+4. **Route Table**: Could be repurposed for reading paths
+
+### New Bot Features:
+1. **Reading Progress**: Track user progress through books
+2. **Bookmarks**: Save favorite verses/passages
+3. **Statistics**: Reading analytics and metrics
+4. **User Preferences**: Reading settings and preferences
+
+## 🔒 SECURITY CONSIDERATIONS
+=============================
+
+### Current Security:
+- ✅ Credentials in .env file (not in code)
+- ✅ Environment variable loading
+- ✅ Connection pooling configured
+- ✅ Error handling implemented
+
+### Recommendations:
+- Regular database backups
+- Monitor connection limits
+- Implement rate limiting
+- Add data encryption for sensitive content
+
+## 📝 DEVELOPMENT NOTES
+========================
+
+### Connection Testing:
+```bash
+node database/testConnection.js
+```
+
+### Database Investigation:
+```bash
+node database/investigate.js
+```
+
+### Sequelize Usage:
+```javascript
+import { sequelize } from './database/sequelize.js';
+// Define models and interact with database
+```
+
+### Environment Variables:
+```env
+DB_HOST=[REDACTED]
+DB_PORT=[REDACTED]
+DB_NAME=[REDACTED]
+DB_USER=[REDACTED]
+DB_PASSWORD=[REDACTED]
+```
+
+## 🎯 NEXT STEPS
+=================
+
+1. **Create Bot-Specific Models**: Define Sequelize models for bot functionality
+2. **Integrate with Existing Data**: Link bot users to existing User table
+3. **Add Reading Features**: Implement progress tracking and bookmarks
+4. **Analytics**: Add statistics and usage tracking
+5. **Content Management**: Store EPUB content and metadata
+
+## 📞 SUPPORT INFORMATION
+==========================
+
+### Database Access:
+- Host: [Environment Variable: DB_HOST]:[Environment Variable: DB_PORT]
+- Database: [Environment Variable: DB_NAME]
+- User: [Environment Variable: DB_USER]
+
+### Investigation Scripts:
+- database/testConnection.js: Test database connectivity
+- database/investigate.js: Full database analysis
+
+### Configuration:
+- .env: Environment variables
+- database/sequelize.js: Connection configuration
+
+---
+Last Updated: August 24, 2025
+Database Investigation: Complete ✅
+Status: Ready for EPUB Bot Integration 🚀
