@@ -1,15 +1,28 @@
 import { getChapterText } from "./chapterExtractor.js";
 import { parseChapterContent } from "./chapterExtractor.js";
+import { processChapterContent } from "./contentSeparator.js";
 
 /**
  * Get formatted chapter preview (title + first 3 verses)
  */
 export async function getChapterPreview(index) {
   const fullText = await getChapterText(index);
-  const parsed = parseChapterContent(fullText);
+  
+  // Process content to separate main text from references
+  const processed = processChapterContent(fullText, {
+    includeReferences: false, // Don't include references in preview
+    cleanInline: true // Clean inline references
+  });
+  
+  const parsed = parseChapterContent(processed.cleanMainText);
   
   if (!parsed.hasContent) {
-    return { title: "", content: "No text found.", hasMore: false };
+    return { 
+      title: "", 
+      content: "No text found.", 
+      hasMore: false,
+      hasReferences: processed.hasReferences
+    };
   }
 
   // Combine title and subtitle
@@ -24,7 +37,9 @@ export async function getChapterPreview(index) {
     title: fullTitle,
     content: previewContent,
     hasMore: hasMore,
-    fullText: fullText,
+    fullText: processed.fullText,
+    cleanMainText: processed.cleanMainText,
+    hasReferences: processed.hasReferences,
     verseCount: parsed.verses.length
   };
 }
@@ -34,10 +49,22 @@ export async function getChapterPreview(index) {
  */
 export async function getChapterPreviewWithVerses(index, verseStart = 0) {
   const fullText = await getChapterText(index);
-  const parsed = parseChapterContent(fullText);
+  
+  // Process content to separate main text from references
+  const processed = processChapterContent(fullText, {
+    includeReferences: false, // Don't include references in preview
+    cleanInline: true // Clean inline references
+  });
+  
+  const parsed = parseChapterContent(processed.cleanMainText);
   
   if (!parsed.hasContent) {
-    return { title: "", content: "No text found.", hasMore: false };
+    return { 
+      title: "", 
+      content: "No text found.", 
+      hasMore: false,
+      hasReferences: processed.hasReferences
+    };
   }
 
   // Combine title and subtitle
@@ -52,7 +79,9 @@ export async function getChapterPreviewWithVerses(index, verseStart = 0) {
     title: fullTitle,
     content: previewContent,
     hasMore: hasMore,
-    fullText: fullText,
+    fullText: processed.fullText,
+    cleanMainText: processed.cleanMainText,
+    hasReferences: processed.hasReferences,
     verseCount: parsed.verses.length
   };
 }
@@ -62,7 +91,14 @@ export async function getChapterPreviewWithVerses(index, verseStart = 0) {
  */
 export async function getSpecificVerse(chapterIndex, verseNumber) {
   const fullText = await getChapterText(chapterIndex);
-  const parsed = parseChapterContent(fullText);
+  
+  // Process content to separate main text from references
+  const processed = processChapterContent(fullText, {
+    includeReferences: false, // Don't include references in verse selection
+    cleanInline: true // Clean inline references
+  });
+  
+  const parsed = parseChapterContent(processed.cleanMainText);
   
   if (!parsed.hasContent) {
     return "Вірш не знайдено.";

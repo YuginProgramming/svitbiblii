@@ -28,3 +28,11 @@ export {
   getFlatChapterList, 
   getChapterTitle 
 } from './tableOfContents.js';
+
+// Content separation and reference handling
+export { 
+  separateTextFromReferences, 
+  cleanInlineReferences, 
+  formatReferences, 
+  processChapterContent 
+} from './contentSeparator.js';

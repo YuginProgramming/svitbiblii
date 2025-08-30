@@ -1,7 +1,7 @@
 import bot from "./botInstance.js";
 import { getTotalChapters, getTableOfContents, getChapterText, getChapterPreview } from "./epub-parser/index.js";
 import { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage } from "./mainMenu.js";
-import { setupNavigationHandlers } from "./navigationHandlers.js";
+import { setupNavigationHandlers } from "./navigation/index.js";
 import { initializeTelegramUserMiddleware } from "./database/middleware/telegramUserMiddleware.js";
 
 

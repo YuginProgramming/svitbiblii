@@ -1,0 +1,1309 @@
+[dotenv@17.2.1] injecting env (26) from .env -- tip: ⚙️  override existing env vars with { override: true }
+🤖 Bot instance created successfully
+[dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+🚀 Starting EPUB Bot...
+🔄 Initializing Telegram User Middleware...
+🔄 Initializing Telegram User Middleware...
+✅ Telegram User Middleware initialized successfully!
+✅ Telegram User Middleware initialized!
+✅ Menu button commands set successfully
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'en',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing user: 1640229482 (Юлия)
+✅ User tracked: 1640229482 (Юлия)
+🔍 Message received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing user: 1640229482 (Юлия)
+✅ User tracked: 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Message received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing user: 1640229482 (Юлия)
+✅ User tracked: 1640229482 (Юлия)
+🔍 Message received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing user: 1640229482 (Юлия)
+✅ User tracked: 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Callback query received from: {
+  id: 1640229482,
+  is_bot: false,
+  first_name: 'Юлия',
+  last_name: 'Локтева',
+  username: 'Juloksa',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1640229482 (Юлия)
+✅ User tracked (callback): 1640229482 (Юлия)
+🔍 Message received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing user: 1743316913 (Анастасія)
+✅ User tracked: 1743316913 (Анастасія)
+🔍 Message received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing user: 1743316913 (Анастасія)
+✅ User tracked: 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Callback query received from: {
+  id: 1743316913,
+  is_bot: false,
+  first_name: 'Анастасія',
+  last_name: 'Сіроштан',
+  username: 'Seroshtan_Anastasiya',
+  language_code: 'uk'
+}
+📝 Processing callback user: 1743316913 (Анастасія)
+✅ User tracked (callback): 1743316913 (Анастасія)
+🔍 Message received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing user: 102448381 (Marikki)
+✅ User tracked: 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Message received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing user: 102448381 (Marikki)
+✅ User tracked: 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Message received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing user: 102448381 (Marikki)
+✅ User tracked: 102448381 (Marikki)
+🔍 Message received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing user: 102448381 (Marikki)
+✅ User tracked: 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Callback query received from: {
+  id: 102448381,
+  is_bot: false,
+  first_name: 'Marikki',
+  username: 'marikkish',
+  language_code: 'ru'
+}
+📝 Processing callback user: 102448381 (Marikki)
+✅ User tracked (callback): 102448381 (Marikki)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Callback query received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing callback user: 429789892 (Рома{brysommer})
+✅ User tracked (callback): 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 429789892,
+  is_bot: false,
+  first_name: 'Рома{brysommer}',
+  last_name: '@tatko.jobs',
+  username: 'brysommer',
+  language_code: 'uk'
+}
+📝 Processing user: 429789892 (Рома{brysommer})
+✅ User tracked: 429789892 (Рома{brysommer})
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Message received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing user: 445285237 (Sem)
+✅ User tracked: 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Callback query received from: {
+  id: 445285237,
+  is_bot: false,
+  first_name: 'Sem',
+  username: 'Sem2130',
+  language_code: 'en'
+}
+📝 Processing callback user: 445285237 (Sem)
+✅ User tracked (callback): 445285237 (Sem)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Message received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing user: 269694206 (Yevhen)
+✅ User tracked: 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
+🔍 Callback query received from: {
+  id: 269694206,
+  is_bot: false,
+  first_name: 'Yevhen',
+  last_name: 'Dudar',
+  username: 'YevhenDudar',
+  language_code: 'uk',
+  is_premium: true
+}
+📝 Processing callback user: 269694206 (Yevhen)
+✅ User tracked (callback): 269694206 (Yevhen)
