@@ -3,9 +3,14 @@ import { getTotalChapters, getTableOfContents, getChapterText, getChapterPreview
 import { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage } from "./mainMenu.js";
 import { setupNavigationHandlers } from "./navigation/index.js";
 import { initializeTelegramUserMiddleware } from "./database/middleware/telegramUserMiddleware.js";
+import MailingService from "./services/mailingService.js";
 
 
 console.log('🚀 Starting EPUB Bot...');
+
+// Initialize mailing service
+console.log('📧 Initializing mailing service...');
+MailingService.startScheduler();
 
 setupMainMenuHandlers(bot);
 
@@ -69,6 +74,8 @@ bot.onText(/\/help/, async (msg) => {
   
   await bot.sendMessage(chatId, helpText, { parse_mode: 'Markdown' });
 });
+
+
 
 // Table of Contents command
 bot.onText(/\/toc/, async (msg) => {

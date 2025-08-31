@@ -31,7 +31,7 @@ export const BOOKS_DATA = [
   { title: "ПОСЛАННЯ ДО ТИТА", startIndex: 246, chapterCount: 3 },
   { title: "ПОСЛАННЯ ДО ФІЛІМОНА", startIndex: 250, chapterCount: 1 },
   { title: "ПОСЛАННЯ ДО ЄВРЕЇВ", startIndex: 252, chapterCount: 13 },
-  { title: "ОДКРОВЕННЯ ІОАННА", startIndex: 266, chapterCount: 22 }
+  { title: "ОДКРОВЕННЯ ІОАННА", startIndex: 243, chapterCount: 22 }
 ];
 
 /**

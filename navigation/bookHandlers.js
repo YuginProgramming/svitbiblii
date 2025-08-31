@@ -16,9 +16,6 @@ import { getTableOfContents } from '../epub-parser/index.js';
  */
 export async function handleBookSelection(bot, chatId, messageId, bookIndex) {
   try {
-    // Delete the previous message (book selection menu)
-    await bot.deleteMessage(chatId, messageId);
-    
     // Get book info and chapters
     const bookInfo = getBookInfo(bookIndex);
     const chapterButtons = createChapterButtons(bookIndex, bookInfo.chapterCount);
@@ -49,9 +46,6 @@ export async function handleBookSelection(bot, chatId, messageId, bookIndex) {
  */
 export async function handleTableOfContents(bot, chatId, messageId) {
   try {
-    // Delete the current message
-    await bot.deleteMessage(chatId, messageId);
-    
     // Show table of contents
     const toc = await getTableOfContents();
     const bookButtons = [];
@@ -94,9 +88,6 @@ export async function handleTableOfContents(bot, chatId, messageId) {
  */
 export async function handleMainMenu(bot, chatId, messageId) {
   try {
-    // Delete the current message
-    await bot.deleteMessage(chatId, messageId);
-    
     // Show main menu
     await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", {
       reply_markup: {
