@@ -1,6 +1,6 @@
 /**
  * Mailing Service Module
- * Handles scheduled mailing of random verses to all users
+ * Handles mailing of random verses to all users
  */
 
 import TelegramUserService from '../database/services/telegramUserService.js';
@@ -12,7 +12,6 @@ import bot from '../botInstance.js';
 class MailingService {
   constructor() {
     this.isRunning = false;
-    this.scheduler = null;
   }
 
   /**
@@ -148,7 +147,7 @@ class MailingService {
     }
 
     this.isRunning = true;
-    console.log('📧 Starting scheduled mailing...');
+    console.log('📧 Starting mailing...');
 
     try {
       // Get all active users
@@ -195,53 +194,6 @@ class MailingService {
       this.isRunning = false;
     }
   }
-
-  /**
-   * Check if it's time to send mailing (Wednesday or Friday at 8 AM Kyiv time)
-   * @returns {boolean}
-   */
-  isMailingTime() {
-    const now = new Date();
-    const kyivTime = new Date(now.toLocaleString("en-US", { timeZone: "Europe/Kiev" }));
-    
-    const dayOfWeek = kyivTime.getDay(); // 0 = Sunday, 3 = Wednesday, 5 = Friday
-    const hour = kyivTime.getHours();
-    
-    return (dayOfWeek === 3 || dayOfWeek === 5) && hour === 8;
-  }
-
-  /**
-   * Start the mailing scheduler
-   */
-  startScheduler() {
-    if (this.scheduler) {
-      console.log('📧 Scheduler already running');
-      return;
-    }
-
-    console.log('📧 Starting mailing scheduler...');
-    
-    // Check every minute if it's time to send mailing
-    this.scheduler = setInterval(async () => {
-      if (this.isMailingTime()) {
-        await this.sendRandomVersesToAllUsers();
-      }
-    }, 60000); // Check every minute
-
-    console.log('✅ Mailing scheduler started');
-  }
-
-  /**
-   * Stop the mailing scheduler
-   */
-  stopScheduler() {
-    if (this.scheduler) {
-      clearInterval(this.scheduler);
-      this.scheduler = null;
-      console.log('📧 Mailing scheduler stopped');
-    }
-  }
-
 
 }
 

@@ -4,13 +4,23 @@ import { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage } from "./main
 import { setupNavigationHandlers } from "./navigation/index.js";
 import { initializeTelegramUserMiddleware } from "./database/middleware/telegramUserMiddleware.js";
 import MailingService from "./services/mailingService.js";
+import SchedulerService from "./services/schedulerService.js";
 
 
 console.log('🚀 Starting EPUB Bot...');
 
-// Initialize mailing service
-console.log('📧 Initializing mailing service...');
-MailingService.startScheduler();
+// Initialize mailing scheduler
+console.log('📧 Initializing mailing scheduler...');
+SchedulerService.createScheduler(
+  'mailing',
+  async () => {
+    await MailingService.sendRandomVersesToAllUsers();
+    SchedulerService.markMailingSent();
+  },
+  60000, // Check every minute
+  () => SchedulerService.isMailingTime() // Only run if it's mailing time
+);
+SchedulerService.startScheduler('mailing');
 
 setupMainMenuHandlers(bot);
 
