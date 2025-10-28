@@ -7,10 +7,10 @@ import TelegramUserService from '../database/services/telegramUserService.js';
 import { getChapterText, getTotalChapters } from '../epub-parser/index.js';
 import { processChapterContent, parseChapterContent } from '../epub-parser/index.js';
 import { findBookForChapter } from '../navigation/bookData.js';
-import bot from '../botInstance.js';
 
 class MailingService {
-  constructor() {
+  constructor(bot) {
+    this.bot = bot;
     this.isRunning = false;
   }
 
@@ -83,14 +83,16 @@ class MailingService {
     const firstVerse = verses[0];
     const bookInfo = findBookForChapter(firstVerse.chapterIndex);
     const bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
-    const chapterInBook = bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber;
+    
+    // Use the actual chapter title from the parsed content instead of calculated chapter number
+    const chapterTitle = firstVerse.title || `Розділ ${bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber}`;
 
     let message = "📖 *Сьогоднішні вірші:*\n\n";
     message += `*${bookName}*\n`;
-    message += `Розділ ${chapterInBook}\n\n`;
+    message += `${chapterTitle}\n\n`;
     
     verses.forEach((verse, index) => {
-      message += `*${verse.verseNumber}* ${verse.text}\n\n`;
+      message += `*${verse.text}*\n\n`;
     });
 
     message += "💡 *Хочете читати більше?*\n";
@@ -113,7 +115,7 @@ class MailingService {
         return false;
       }
 
-      await bot.sendMessage(user.telegramId, message, {
+      await this.bot.sendMessage(user.telegramId, message, {
         parse_mode: 'Markdown',
         disable_web_page_preview: true
       });
@@ -197,4 +199,4 @@ class MailingService {
 
 }
 
-export default new MailingService();
+export default MailingService;

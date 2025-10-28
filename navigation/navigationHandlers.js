@@ -50,11 +50,42 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
         reply_markup: {
           inline_keyboard: [
             [{ text: "🔗 Відкрити Словник", url: "https://svitbiblii.vercel.app/uploads/slovnyk-bibliynogo-bohoslovya.pdf" }],
-            [{ text: "📚 Зміст словника", callback_data: "dictionary_contents" }],
+            [{ text: "📚 Зміст словника", callback_data: "dictionary_letters" }],
             [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
           ]
         }
       });
+    }
+
+    // Dictionary letters index
+    else if (data === "dictionary_letters") {
+      await deletePreviousMessage();
+      try {
+        const dictionaryService = (await import('../database/services/dictionaryService.js')).default;
+        const letters = await dictionaryService.getLetters();
+
+        // Build alphabet buttons (rows of 6)
+        const kb = [];
+        let row = [];
+        for (const { letter, count } of letters) {
+          row.push({ text: `${letter} (${count})`, callback_data: `dict_letter_${letter}` });
+          if (row.length === 6) { kb.push(row); row = []; }
+        }
+        if (row.length) kb.push(row);
+
+        // Actions
+        kb.push([
+          { text: "📚 Зміст словника", callback_data: "dictionary_contents" },
+          { text: "🏠 Головне меню", callback_data: "main_menu" }
+        ]);
+
+        await bot.sendMessage(chatId, "📖 Словник — індекс за літерами", {
+          reply_markup: { inline_keyboard: kb }
+        });
+      } catch (error) {
+        console.error('Error loading letters:', error);
+        await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити індекс літер.");
+      }
     }
 
     // Dictionary contents handler - show all words as buttons
@@ -120,7 +151,77 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
       }
     }
 
+    // Dictionary words by letter pagination
+    else if (data.startsWith("dict_letter_")) {
+      await deletePreviousMessage();
+      const letter = data.split("_").pop();
+      try {
+        const dictionaryService = (await import('../database/services/dictionaryService.js')).default;
+        const pageData = await dictionaryService.getWordsByLetter(letter, 1, 20);
+
+        const kb = [];
+        let row = [];
+        for (const entry of pageData.words) {
+          row.push({ text: entry.word, callback_data: `word_${entry.word}` });
+          if (row.length === 2) { kb.push(row); row = []; }
+        }
+        if (row.length) kb.push(row);
+
+        const nav = [];
+        if (pageData.hasNextPage) nav.push({ text: "➡️ Наступна", callback_data: `dict_letter_page_${letter}_2` });
+        if (nav.length) kb.push(nav);
+
+        kb.push([
+          { text: "🔤 Літери", callback_data: "dictionary_letters" },
+          { text: "📚 Всі слова", callback_data: "dictionary_contents" },
+          { text: "🏠 Меню", callback_data: "main_menu" }
+        ]);
+
+        const msg = `📖 *Слова на літеру ${letter}*\n\nПоказано ${pageData.words.length} з ${pageData.totalCount}\nСторінка ${pageData.currentPage} з ${pageData.totalPages}`;
+        await bot.sendMessage(chatId, msg, { parse_mode: 'Markdown', reply_markup: { inline_keyboard: kb } });
+      } catch (error) {
+        console.error('Error loading words by letter:', error);
+        await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити слова за літерою.");
+      }
+    }
+
     // Dictionary pagination handler
+    else if (data.startsWith("dict_letter_page_")) {
+      await deletePreviousMessage();
+      const parts = data.split("_");
+      const letter = parts[3];
+      const pageNumber = parseInt(parts[4], 10) || 1;
+      try {
+        const dictionaryService = (await import('../database/services/dictionaryService.js')).default;
+        const pageData = await dictionaryService.getWordsByLetter(letter, pageNumber, 20);
+
+        const kb = [];
+        let row = [];
+        for (const entry of pageData.words) {
+          row.push({ text: entry.word, callback_data: `word_${entry.word}` });
+          if (row.length === 2) { kb.push(row); row = []; }
+        }
+        if (row.length) kb.push(row);
+
+        const nav = [];
+        if (pageData.hasPrevPage) nav.push({ text: "⬅️ Попередня", callback_data: `dict_letter_page_${letter}_${pageNumber - 1}` });
+        if (pageData.hasNextPage) nav.push({ text: "➡️ Наступна", callback_data: `dict_letter_page_${letter}_${pageNumber + 1}` });
+        if (nav.length) kb.push(nav);
+
+        kb.push([
+          { text: "🔤 Літери", callback_data: "dictionary_letters" },
+          { text: "📚 Всі слова", callback_data: "dictionary_contents" },
+          { text: "🏠 Меню", callback_data: "main_menu" }
+        ]);
+
+        const msg = `📖 *Слова на літеру ${letter}*\n\nПоказано ${pageData.words.length} з ${pageData.totalCount}\nСторінка ${pageData.currentPage} з ${pageData.totalPages}`;
+        await bot.sendMessage(chatId, msg, { parse_mode: 'Markdown', reply_markup: { inline_keyboard: kb } });
+      } catch (error) {
+        console.error('Error loading letter page:', error);
+        await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити сторінку за літерою.");
+      }
+    }
+
     else if (data.startsWith("dict_page_")) {
       const pageNumber = parseInt(data.split("_")[2], 10);
       await deletePreviousMessage();
@@ -194,14 +295,16 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
         const wordEntry = allWords.find(w => w.word === word);
         
         if (wordEntry) {
-          const message = `📖 *${wordEntry.word}*\n\nСторінка: ${wordEntry.page}`;
-          
+          const url = `https://svitbiblii.vercel.app/uploads/slovnyk-bibliynogo-bohoslovya.pdf#page=${wordEntry.page}`;
+          const message = `📖 *${wordEntry.word}*\n\n${url}`;
+
           await bot.sendMessage(chatId, message, {
             parse_mode: 'Markdown',
+            disable_web_page_preview: true,
             reply_markup: {
               inline_keyboard: [
-                [{ text: "📚 Зміст словника", callback_data: "dictionary_contents" }],
-                [{ text: "🔗 Відкрити Словник", url: "https://svitbiblii.vercel.app/uploads/slovnyk-bibliynogo-bohoslovya.pdf" }],
+                [{ text: "📚 Зміст словника", callback_data: "dictionary_letters" }],
+                [{ text: "🔗 Відкрити сторінку", url }],
                 [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
               ]
             }

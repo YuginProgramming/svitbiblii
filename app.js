@@ -1,4 +1,4 @@
-import bot from "./botInstance.js";
+import bot, { startBotPollingOnce } from "./botInstance.js";
 import { getTotalChapters, getTableOfContents, getChapterText, getChapterPreview } from "./epub-parser/index.js";
 import { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage } from "./mainMenu.js";
 import { setupNavigationHandlers } from "./navigation/index.js";
@@ -9,12 +9,18 @@ import SchedulerService from "./services/schedulerService.js";
 
 console.log('🚀 Starting EPUB Bot...');
 
+// Ensure only one polling session; clear webhook and start
+await startBotPollingOnce();
+
+// Initialize mailing service with bot instance
+const mailingService = new MailingService(bot);
+
 // Initialize mailing scheduler
 console.log('📧 Initializing mailing scheduler...');
 SchedulerService.createScheduler(
   'mailing',
   async () => {
-    await MailingService.sendRandomVersesToAllUsers();
+    await mailingService.sendRandomVersesToAllUsers();
     SchedulerService.markMailingSent();
   },
   60000, // Check every minute

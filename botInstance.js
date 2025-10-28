@@ -9,7 +9,8 @@ if (!token) {
   throw new Error('TELEGRAM_BOT_TOKEN is not set in environment variables');
 }
 
-const bot = new TelegramBot(token, { polling: true });
+// Create bot without starting polling; we'll start it explicitly after ensuring no webhooks
+const bot = new TelegramBot(token, { polling: false });
 
 // Add error handling
 bot.on('polling_error', (error) => {
@@ -26,5 +27,30 @@ bot.on('webhook_error', (error) => {
 });
 
 console.log('🤖 Bot instance created successfully');
+
+let pollingStarted = false;
+
+/**
+ * Start polling only once, after clearing webhook to avoid 409 conflicts
+ */
+export async function startBotPollingOnce() {
+  if (pollingStarted) {
+    return;
+  }
+  try {
+    // Ensure webhooks are disabled; drop pending updates to avoid backlog conflicts
+    await bot.deleteWebHook({ drop_pending_updates: true });
+  } catch (err) {
+    console.log('⚠️ Failed to delete webhook (may be fine):', err?.message || err);
+  }
+  try {
+    await bot.startPolling();
+    pollingStarted = true;
+    console.log('📡 Polling started');
+  } catch (err) {
+    console.log('❌ Failed to start polling:', err?.message || err);
+    throw err;
+  }
+}
 
 export default bot;
