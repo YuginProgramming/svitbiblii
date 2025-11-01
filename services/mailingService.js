@@ -6,7 +6,7 @@
 import TelegramUserService from '../database/services/telegramUserService.js';
 import { getChapterText, getTotalChapters } from '../epub-parser/index.js';
 import { processChapterContent, parseChapterContent } from '../epub-parser/index.js';
-import { findBookForChapter } from '../navigation/bookData.js';
+import { findBookForChapter, BOOKS_DATA } from '../navigation/bookData.js';
 
 class MailingService {
   constructor(bot) {
@@ -15,13 +15,24 @@ class MailingService {
   }
 
   /**
-   * Get random chapter index
-   * @returns {Promise<number>}
+   * Get random book from BOOKS_DATA
+   * @returns {Object} Random book object
    */
-  async getRandomChapter() {
-    const totalChapters = await getTotalChapters();
-    // Skip first 5 chapters (preliminary pages) and get random chapter
-    return Math.floor(Math.random() * (totalChapters - 5)) + 5;
+  getRandomBook() {
+    const randomIndex = Math.floor(Math.random() * BOOKS_DATA.length);
+    return BOOKS_DATA[randomIndex];
+  }
+
+  /**
+   * Get random chapter index within a book
+   * @param {Object} book - Book object with startIndex and chapterCount
+   * @returns {number} Random chapter index within the book
+   */
+  getRandomChapterInBook(book) {
+    const randomChapter = Math.floor(Math.random() * book.chapterCount) + 1;
+    // chapterInBook is 1-based, but startIndex is 0-based in array
+    // So chapter 1 = startIndex + 0, chapter 2 = startIndex + 1, etc.
+    return book.startIndex + (randomChapter - 1);
   }
 
   /**
@@ -44,12 +55,17 @@ class MailingService {
       }
 
       const verses = parsed.verses;
-      const consecutiveVerses = [];
+      
+      // If chapter has fewer verses than requested, return what's available
+      if (verses.length < count) {
+        count = verses.length;
+      }
 
       // Get consecutive verses starting from a random position
       const maxStartIndex = Math.max(0, verses.length - count);
       const startIndex = Math.floor(Math.random() * (maxStartIndex + 1));
 
+      const consecutiveVerses = [];
       for (let i = 0; i < count && (startIndex + i) < verses.length; i++) {
         const verseNumber = startIndex + i + 1;
         const verseText = verses[startIndex + i];
@@ -70,22 +86,66 @@ class MailingService {
   }
 
   /**
+   * Get random verses following the sequence: book → chapter → verses
+   * @returns {Promise<Array>} Array of verse objects
+   */
+  async getRandomVerses() {
+    try {
+      // Step 1: Randomize book
+      const book = this.getRandomBook();
+      
+      // Step 2: Randomize chapter within the book
+      const chapterIndex = this.getRandomChapterInBook(book);
+      
+      // Step 3: Get random 3 consecutive verses from the chapter
+      const verses = await this.getConsecutiveVerses(chapterIndex, 3);
+      
+      // Add book info to first verse for easier formatting
+      if (verses.length > 0) {
+        verses[0].book = book;
+      }
+      
+      return verses;
+    } catch (error) {
+      console.error('Error getting random verses:', error);
+      return [];
+    }
+  }
+
+  /**
    * Format verses for mailing
    * @param {Array} verses - Array of verse objects
-   * @returns {string} Formatted message
+   * @returns {Object} Formatted message object with text and buttons
    */
   formatVersesForMailing(verses) {
     if (verses.length === 0) {
-      return "📖 Сьогоднішні вірші:\n\nНа жаль, не вдалося завантажити вірші. Спробуйте пізніше.";
+      return {
+        text: "📖 Сьогоднішні вірші:\n\nНа жаль, не вдалося завантажити вірші. Спробуйте пізніше.",
+        buttons: [
+          [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+        ]
+      };
     }
 
     // Get book information from the first verse
     const firstVerse = verses[0];
-    const bookInfo = findBookForChapter(firstVerse.chapterIndex);
-    const bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
     
-    // Use the actual chapter title from the parsed content instead of calculated chapter number
-    const chapterTitle = firstVerse.title || `Розділ ${bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber}`;
+    // Use book info from verse if available (from new randomization), otherwise lookup
+    let bookName = 'Невідома книга';
+    let chapterTitle = firstVerse.title || 'Розділ ?';
+    
+    if (firstVerse.book) {
+      // Book info from new randomization logic
+      bookName = firstVerse.book.title;
+      // Calculate chapter number within book
+      const chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      chapterTitle = firstVerse.title || `Розділ ${chapterInBook}`;
+    } else {
+      // Fallback to old lookup method
+      const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+      bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
+      chapterTitle = firstVerse.title || `Розділ ${bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber}`;
+    }
 
     let message = "📖 *Сьогоднішні вірші:*\n\n";
     message += `*${bookName}*\n`;
@@ -95,19 +155,24 @@ class MailingService {
       message += `*${verse.text}*\n\n`;
     });
 
-    message += "💡 *Хочете читати більше?*\n";
-    message += "Відправте /start щоб почати читання!";
+    message += "💡 *Хочеш читати більше?*\n";
+    message += "Скористайся головним меню.";
 
-    return message;
+    return {
+      text: message,
+      buttons: [
+        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+      ]
+    };
   }
 
   /**
    * Send verses to a single user
    * @param {Object} user - User object
-   * @param {string} message - Formatted message
+   * @param {string|Object} messageData - Formatted message string or object with text and buttons
    * @returns {Promise<boolean>} Success status
    */
-  async sendVersesToUser(user, message) {
+  async sendVersesToUser(user, messageData) {
     try {
       // Check if user allows private messages
       if (!user.allowsWriteToPm) {
@@ -115,10 +180,21 @@ class MailingService {
         return false;
       }
 
-      await this.bot.sendMessage(user.telegramId, message, {
+      // Handle new format with buttons or legacy string format
+      const messageText = typeof messageData === 'string' ? messageData : messageData.text;
+      const options = {
         parse_mode: 'Markdown',
         disable_web_page_preview: true
-      });
+      };
+
+      // Add inline keyboard if buttons are provided
+      if (typeof messageData === 'object' && messageData.buttons) {
+        options.reply_markup = {
+          inline_keyboard: messageData.buttons
+        };
+      }
+
+      await this.bot.sendMessage(user.telegramId, messageText, options);
 
       console.log(`✅ Sent verses to user ${user.telegramId} (${user.firstName || user.username || 'Unknown'})`);
       return true;
@@ -161,8 +237,8 @@ class MailingService {
         return;
       }
 
-      // Get consecutive verses
-      const verses = await this.getConsecutiveVerses(await this.getRandomChapter(), 3);
+      // Get random verses: book → chapter → verses
+      const verses = await this.getRandomVerses();
       
       if (verses.length === 0) {
         console.log('📧 No verses found, skipping mailing');
