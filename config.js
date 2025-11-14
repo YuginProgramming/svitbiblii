@@ -1,9 +1,15 @@
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// Load environment variables from .env file
-dotenv.config({ path: '.env' });
+// Get the directory of the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Load environment variables from .env file using absolute path
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * Configuration loader for the EPUB Bot
@@ -55,6 +61,9 @@ class Config {
     // Monitoring
     this.ENABLE_METRICS = process.env.ENABLE_METRICS === 'true';
     this.METRICS_PORT = parseInt(process.env.METRICS_PORT) || 3001;
+
+    // AI Configuration
+    this.GEMINI_API_KEY = process.env.GEMINI_API_KEY;
   }
 
   /**
@@ -96,7 +105,8 @@ class Config {
       BACKUP_INTERVAL: this.BACKUP_INTERVAL,
       BACKUP_PATH: this.BACKUP_PATH,
       ENABLE_METRICS: this.ENABLE_METRICS,
-      METRICS_PORT: this.METRICS_PORT
+      METRICS_PORT: this.METRICS_PORT,
+      GEMINI_API_KEY: this.GEMINI_API_KEY
     };
   }
 
