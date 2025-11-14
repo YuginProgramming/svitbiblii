@@ -15,6 +15,10 @@ await startBotPollingOnce();
 // Initialize mailing service with bot instance
 const mailingService = new MailingService(bot);
 
+// Send startup message to dev user
+console.log('📧 Sending startup message to dev user...');
+await mailingService.sendRandomVersesToDevUser();
+
 // Initialize mailing scheduler
 console.log('📧 Initializing mailing scheduler...');
 SchedulerService.createScheduler(

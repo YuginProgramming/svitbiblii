@@ -273,6 +273,58 @@ class MailingService {
     }
   }
 
+  /**
+   * Send random verses to dev user on app start
+   * @returns {Promise<void>}
+   */
+  async sendRandomVersesToDevUser() {
+    try {
+      const devUserId = process.env.DEV_USER_TELEGRAM_ID;
+      
+      if (!devUserId) {
+        console.log('⚠️ DEV_USER_TELEGRAM_ID not set, skipping dev user notification');
+        return;
+      }
+
+      console.log(`📧 Sending startup message to dev user ${devUserId}...`);
+
+      // Get random verses using the same logic as regular mailing
+      const verses = await this.getRandomVerses();
+      
+      if (verses.length === 0) {
+        console.log('📧 No verses found for dev user, skipping');
+        return;
+      }
+
+      // Format message
+      const message = this.formatVersesForMailing(verses);
+
+      // Send to dev user
+      const options = {
+        parse_mode: 'Markdown',
+        disable_web_page_preview: true
+      };
+
+      // Add inline keyboard if buttons are provided
+      if (message.buttons) {
+        options.reply_markup = {
+          inline_keyboard: message.buttons
+        };
+      }
+
+      await this.bot.sendMessage(devUserId, message.text, options);
+      console.log(`✅ Sent startup message to dev user ${devUserId}`);
+
+    } catch (error) {
+      console.error(`❌ Failed to send startup message to dev user:`, error.message);
+      
+      // Don't throw - this is a non-critical notification
+      if (error.message.includes('Forbidden') || error.message.includes('blocked')) {
+        console.log(`⚠️ Dev user ${process.env.DEV_USER_TELEGRAM_ID} may have blocked the bot`);
+      }
+    }
+  }
+
 }
 
 export default MailingService;

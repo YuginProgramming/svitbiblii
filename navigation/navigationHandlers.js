@@ -9,6 +9,8 @@ import {
   handleMainMenu 
 } from './bookHandlers.js';
 
+import { exitAIMode } from '../mainMenu.js';
+
 import { 
   handleChapterSelection, 
   handleFullChapter, 
@@ -347,6 +349,8 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
     // Main menu handler
     else if (data === "main_menu") {
       await deletePreviousMessage();
+      // Exit AI mode if user was in it
+      exitAIMode(chatId);
       await handleMainMenu(bot, chatId, messageId);
     }
 
