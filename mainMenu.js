@@ -84,11 +84,51 @@ function setupMainMenuHandlers(bot) {
 
       // Handle AI chat messages
       try {
+        const userId = msg.from?.id;
+        
+        // Skip if no user ID (shouldn't happen, but safety check)
+        if (!userId) {
+          await bot.sendMessage(chatId, '❌ Помилка: не вдалося ідентифікувати користувача.');
+          return;
+        }
+        
+        // Import limits service
+        const aiLimitsService = (await import('./services/aiLimitsService.js')).default;
+        
+        // Validate request content (text only, max 3000 characters)
+        const contentValidation = aiLimitsService.validateRequest(text);
+        if (!contentValidation.valid) {
+          await bot.sendMessage(chatId, `❌ ${contentValidation.reason}`, {
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+              ]
+            }
+          });
+          return;
+        }
+        
+        // Check if user can make a request (daily limit)
+        const limitCheck = aiLimitsService.canMakeRequest(userId);
+        if (!limitCheck.allowed) {
+          await bot.sendMessage(chatId, `❌ ${limitCheck.reason}`, {
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+              ]
+            }
+          });
+          return;
+        }
+        
         // Show typing indicator
         await bot.sendChatAction(chatId, 'typing');
 
         // Generate AI response (already limited to 2000 chars)
         const aiResponse = await aiService.generateResponse(chatId, text);
+        
+        // Record the request after successful generation (consumes user's daily limit)
+        aiLimitsService.recordRequest(userId);
 
         // Split into chunks if needed (max 2000 chars per message)
         const chunks = aiService.splitMessage(aiResponse, 2000);
@@ -152,7 +192,18 @@ function setupMainMenuHandlers(bot) {
       // Enter AI chat mode
       usersInAIMode.add(chatId);
       
-      await bot.sendMessage(chatId, "🤖 *Спілкування з ШІ*\n\nНапишіть ваше питання, і я постараюся вам допомогти!", {
+      const userId = msg.from?.id;
+      const aiLimitsService = (await import('./services/aiLimitsService.js')).default;
+      const remaining = aiLimitsService.getRemainingRequests(userId);
+      
+      let limitMessage = '';
+      if (remaining === Infinity) {
+        limitMessage = '\n\n✨ Ви маєте необмежену кількість запитів.';
+      } else {
+        limitMessage = `\n\n📊 У вас залишилось ${remaining} запитів на сьогодні (максимум 3 на день).`;
+      }
+      
+      await bot.sendMessage(chatId, `🤖 *Спілкування з ШІ*\n\nНапишіть ваше питання, і я постараюся вам допомогти!${limitMessage}\n\n⚠️ Обмеження: максимум 3000 символів на запит.`, {
         parse_mode: 'Markdown'
       });
       return;
