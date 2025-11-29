@@ -101,9 +101,28 @@ class MailingService {
       // Step 3: Get random 3 consecutive verses from the chapter
       const verses = await this.getConsecutiveVerses(chapterIndex, 3);
       
-      // Add book info to first verse for easier formatting
+      // Add book info to first verse - verify the book matches the actual chapterIndex
       if (verses.length > 0) {
-        verses[0].book = book;
+        const actualChapterIndex = verses[0].chapterIndex;
+        
+        // Verify the chapterIndex actually belongs to the selected book
+        // If not, find the correct book based on the actual chapterIndex
+        if (actualChapterIndex >= book.startIndex && 
+            actualChapterIndex < book.startIndex + book.chapterCount) {
+          // Chapter belongs to the selected book
+          verses[0].book = book;
+        } else {
+          // Chapter doesn't match - find the correct book
+          const correctBookInfo = findBookForChapter(actualChapterIndex);
+          if (correctBookInfo) {
+            verses[0].book = correctBookInfo.book;
+            console.log(`⚠️ Chapter index mismatch: Selected book ${book.title} but chapter ${actualChapterIndex} belongs to ${correctBookInfo.book.title}`);
+          } else {
+            // Fallback to selected book if lookup fails
+            verses[0].book = book;
+            console.log(`⚠️ Could not find book for chapter ${actualChapterIndex}, using selected book ${book.title}`);
+          }
+        }
       }
       
       return verses;
@@ -138,11 +157,31 @@ class MailingService {
     let chapterInBook = 1;
     
     if (firstVerse.book) {
-      // Book info from new randomization logic
-      bookName = firstVerse.book.title;
-      // Calculate chapter number within book (always use calculated, not parsed title)
-      chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
-      chapterTitle = `Розділ ${chapterInBook}`;
+      // Verify the chapterIndex actually belongs to the assigned book
+      const chapterIndex = firstVerse.chapterIndex;
+      const assignedBook = firstVerse.book;
+      
+      if (chapterIndex >= assignedBook.startIndex && 
+          chapterIndex < assignedBook.startIndex + assignedBook.chapterCount) {
+        // Chapter belongs to the assigned book - use it
+        bookName = assignedBook.title;
+        chapterInBook = chapterIndex - assignedBook.startIndex + 1;
+        chapterTitle = `Розділ ${chapterInBook}`;
+      } else {
+        // Chapter doesn't match assigned book - find the correct book
+        console.log(`⚠️ Formatting: Chapter ${chapterIndex} doesn't match assigned book ${assignedBook.title}, looking up correct book...`);
+        const correctBookInfo = findBookForChapter(chapterIndex);
+        if (correctBookInfo) {
+          bookName = correctBookInfo.book.title;
+          chapterInBook = correctBookInfo.chapterInBook;
+          chapterTitle = `Розділ ${chapterInBook}`;
+        } else {
+          // Fallback to assigned book if lookup fails
+          bookName = assignedBook.title;
+          chapterInBook = chapterIndex - assignedBook.startIndex + 1;
+          chapterTitle = `Розділ ${chapterInBook}`;
+        }
+      }
     } else {
       // Fallback to old lookup method
       const bookInfo = findBookForChapter(firstVerse.chapterIndex);
