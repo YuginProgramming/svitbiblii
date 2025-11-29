@@ -79,6 +79,34 @@ class AIService {
   }
 
   /**
+   * Escape Markdown characters to prevent parsing errors in Telegram
+   * @param {string} text - Text to escape
+   * @returns {string} Escaped text
+   */
+  escapeMarkdown(text) {
+    // Escape special Markdown characters: _ * [ ] ( ) ~ ` > # + - = | { } . !
+    return text
+      .replace(/\_/g, '\\_')
+      .replace(/\*/g, '\\*')
+      .replace(/\[/g, '\\[')
+      .replace(/\]/g, '\\]')
+      .replace(/\(/g, '\\(')
+      .replace(/\)/g, '\\)')
+      .replace(/\~/g, '\\~')
+      .replace(/\`/g, '\\`')
+      .replace(/\>/g, '\\>')
+      .replace(/\#/g, '\\#')
+      .replace(/\+/g, '\\+')
+      .replace(/\-/g, '\\-')
+      .replace(/\=/g, '\\=')
+      .replace(/\|/g, '\\|')
+      .replace(/\{/g, '\\{')
+      .replace(/\}/g, '\\}')
+      .replace(/\./g, '\\.')
+      .replace(/\!/g, '\\!');
+  }
+
+  /**
    * Split long message into chunks
    * @param {string} text - Text to split
    * @param {number} maxLength - Maximum length per chunk

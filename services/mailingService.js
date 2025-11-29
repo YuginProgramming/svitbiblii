@@ -7,6 +7,7 @@ import TelegramUserService from '../database/services/telegramUserService.js';
 import { getChapterText, getTotalChapters } from '../epub-parser/index.js';
 import { processChapterContent, parseChapterContent } from '../epub-parser/index.js';
 import { findBookForChapter, BOOKS_DATA } from '../navigation/bookData.js';
+import MailingIteration from '../database/models/MailingIteration.js';
 
 class MailingService {
   constructor(bot) {
@@ -115,9 +116,10 @@ class MailingService {
   /**
    * Format verses for mailing
    * @param {Array} verses - Array of verse objects
+   * @param {number} mailingIterationId - ID of the mailing iteration (optional)
    * @returns {Object} Formatted message object with text and buttons
    */
-  formatVersesForMailing(verses) {
+  formatVersesForMailing(verses, mailingIterationId = null) {
     if (verses.length === 0) {
       return {
         text: "📖 Сьогоднішні вірші:\n\nНа жаль, не вдалося завантажити вірші. Спробуйте пізніше.",
@@ -133,18 +135,21 @@ class MailingService {
     // Use book info from verse if available (from new randomization), otherwise lookup
     let bookName = 'Невідома книга';
     let chapterTitle = firstVerse.title || 'Розділ ?';
+    let chapterInBook = 1;
     
     if (firstVerse.book) {
       // Book info from new randomization logic
       bookName = firstVerse.book.title;
-      // Calculate chapter number within book
-      const chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
-      chapterTitle = firstVerse.title || `Розділ ${chapterInBook}`;
+      // Calculate chapter number within book (always use calculated, not parsed title)
+      chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      chapterTitle = `Розділ ${chapterInBook}`;
     } else {
       // Fallback to old lookup method
       const bookInfo = findBookForChapter(firstVerse.chapterIndex);
       bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
-      chapterTitle = firstVerse.title || `Розділ ${bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber}`;
+      // Always use calculated chapter number, not parsed title
+      chapterInBook = bookInfo ? bookInfo.chapterInBook : firstVerse.verseNumber;
+      chapterTitle = `Розділ ${chapterInBook}`;
     }
 
     let message = "📖 *Сьогоднішні вірші:*\n\n";
@@ -158,11 +163,20 @@ class MailingService {
     message += "💡 *Хочеш читати більше?*\n";
     message += "Скористайся головним меню.";
 
+    // Build buttons - add Barclay comments button if mailingIterationId is provided
+    const buttons = [];
+    if (mailingIterationId) {
+      buttons.push([
+        { text: "📖 Коментарі Вільяма Барклі", callback_data: `barclay_comments_${mailingIterationId}` }
+      ]);
+    }
+    buttons.push([
+      { text: "🏠 Головне меню", callback_data: "main_menu" }
+    ]);
+
     return {
       text: message,
-      buttons: [
-        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-      ]
+      buttons: buttons
     };
   }
 
@@ -245,8 +259,44 @@ class MailingService {
         return;
       }
 
-      // Format message
-      const message = this.formatVersesForMailing(verses);
+      // Extract data for database storage
+      const firstVerse = verses[0];
+      let bookName = 'Невідома книга';
+      let chapterIndex = firstVerse.chapterIndex;
+      let chapterInBook = 1;
+      const verseNumbers = verses.map(v => v.verseNumber);
+      const verseTexts = verses.map(v => v.text);
+
+      if (firstVerse.book) {
+        bookName = firstVerse.book.title;
+        chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      } else {
+        const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+        bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
+        chapterInBook = bookInfo ? bookInfo.chapterInBook : 1;
+      }
+
+      // Create mailing iteration record in database
+      let mailingIteration = null;
+      try {
+        mailingIteration = await MailingIteration.create({
+          bookName: bookName,
+          chapterIndex: chapterIndex,
+          chapterNumber: chapterInBook,
+          verseNumbers: verseNumbers,
+          verseTexts: verseTexts,
+          recipientsCount: users.length,
+          successCount: 0,
+          failCount: 0
+        });
+        console.log(`✅ Created mailing iteration record with ID: ${mailingIteration.id}`);
+      } catch (dbError) {
+        console.error('❌ Error creating mailing iteration record:', dbError);
+        // Continue with mailing even if DB save fails
+      }
+
+      // Format message with mailing iteration ID
+      const message = this.formatVersesForMailing(verses, mailingIteration ? mailingIteration.id : null);
 
       // Send to all users
       let successCount = 0;
@@ -262,6 +312,19 @@ class MailingService {
 
         // Add small delay to avoid rate limiting
         await new Promise(resolve => setTimeout(resolve, 100));
+      }
+
+      // Update mailing iteration with final counts
+      if (mailingIteration) {
+        try {
+          await mailingIteration.update({
+            successCount: successCount,
+            failCount: failCount
+          });
+          console.log(`✅ Updated mailing iteration ${mailingIteration.id} with final counts`);
+        } catch (updateError) {
+          console.error('❌ Error updating mailing iteration:', updateError);
+        }
       }
 
       console.log(`📧 Mailing completed: ${successCount} successful, ${failCount} failed`);
@@ -296,8 +359,43 @@ class MailingService {
         return;
       }
 
-      // Format message
-      const message = this.formatVersesForMailing(verses);
+      // Extract data for database storage (same as regular mailing)
+      const firstVerse = verses[0];
+      let bookName = 'Невідома книга';
+      let chapterIndex = firstVerse.chapterIndex;
+      let chapterInBook = 1;
+      const verseNumbers = verses.map(v => v.verseNumber);
+      const verseTexts = verses.map(v => v.text);
+
+      if (firstVerse.book) {
+        bookName = firstVerse.book.title;
+        chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      } else {
+        const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+        bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
+        chapterInBook = bookInfo ? bookInfo.chapterInBook : 1;
+      }
+
+      // Create mailing iteration record for dev user notification
+      let mailingIteration = null;
+      try {
+        mailingIteration = await MailingIteration.create({
+          bookName: bookName,
+          chapterIndex: chapterIndex,
+          chapterNumber: chapterInBook,
+          verseNumbers: verseNumbers,
+          verseTexts: verseTexts,
+          recipientsCount: 1,
+          successCount: 0,
+          failCount: 0
+        });
+        console.log(`✅ Created dev user mailing iteration record with ID: ${mailingIteration.id}`);
+      } catch (dbError) {
+        console.error('❌ Error creating dev user mailing iteration record:', dbError);
+      }
+
+      // Format message with mailing iteration ID
+      const message = this.formatVersesForMailing(verses, mailingIteration ? mailingIteration.id : null);
 
       // Send to dev user
       const options = {
@@ -312,8 +410,27 @@ class MailingService {
         };
       }
 
-      await this.bot.sendMessage(devUserId, message.text, options);
-      console.log(`✅ Sent startup message to dev user ${devUserId}`);
+      try {
+        await this.bot.sendMessage(devUserId, message.text, options);
+        console.log(`✅ Sent startup message to dev user ${devUserId}`);
+        
+        // Update mailing iteration with success
+        if (mailingIteration) {
+          await mailingIteration.update({
+            successCount: 1,
+            failCount: 0
+          });
+        }
+      } catch (sendError) {
+        // Update mailing iteration with failure
+        if (mailingIteration) {
+          await mailingIteration.update({
+            successCount: 0,
+            failCount: 1
+          });
+        }
+        throw sendError;
+      }
 
     } catch (error) {
       console.error(`❌ Failed to send startup message to dev user:`, error.message);

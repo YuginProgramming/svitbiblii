@@ -393,6 +393,138 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
       await handleVerseSelection(bot, chatId, index, verse);
     }
 
+    // Barclay comments handler
+    else if (data.startsWith("barclay_comments_")) {
+      const mailingIterationId = parseInt(data.split("_")[2], 10);
+      
+      try {
+        // Answer callback query immediately
+        await bot.answerCallbackQuery(query.id, { text: 'Завантаження коментарів...' });
+        
+        // Import MailingIteration model
+        const MailingIteration = (await import('../database/models/MailingIteration.js')).default;
+        const AIService = (await import('../services/aiService.js')).default;
+        
+        // Get mailing iteration from database
+        const mailingIteration = await MailingIteration.findByPk(mailingIterationId);
+        
+        if (!mailingIteration) {
+          await bot.sendMessage(chatId, '❌ Не вдалося знайти дані про цю розсилку.', {
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+              ]
+            }
+          });
+          return;
+        }
+
+        // Format verses for the prompt
+        let versesText = '';
+        for (let i = 0; i < mailingIteration.verseNumbers.length; i++) {
+          versesText += `${mailingIteration.verseNumbers[i]}. ${mailingIteration.verseTexts[i]}\n`;
+        }
+
+        // Create prompt for Gemini AI
+        const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${mailingIteration.bookName}, Розділ ${mailingIteration.chapterNumber}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
+
+        // Show typing indicator
+        await bot.sendChatAction(chatId, 'typing');
+
+        // Initialize AI service and generate response
+        const aiService = new AIService();
+        const userId = query.from.id;
+        const aiResponse = await aiService.generateResponse(userId, prompt);
+
+        // Split response into chunks if needed
+        const chunks = aiService.splitMessage(aiResponse, 2000);
+
+        // Send all chunks (as plain text to avoid Markdown parsing errors)
+        for (let i = 0; i < chunks.length; i++) {
+          const isLast = i === chunks.length - 1;
+          
+          try {
+            if (isLast) {
+              // Last chunk - send with menu buttons (plain text, no Markdown)
+              await bot.sendMessage(chatId, chunks[i], {
+                reply_markup: {
+                  inline_keyboard: [
+                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                  ]
+                }
+              });
+            } else {
+              // Intermediate chunks - send without buttons (plain text)
+              await bot.sendMessage(chatId, chunks[i]);
+            }
+          } catch (sendError) {
+            // Log error but don't crash - try to continue with next chunk
+            console.error(`❌ Error sending chunk ${i} to user ${chatId}:`, sendError.message);
+            
+            // If it's a Markdown parsing error, try sending as plain text
+            if (sendError.message && (sendError.message.includes("can't parse entities") || sendError.message.includes("Bad Request"))) {
+              try {
+                console.log(`⚠️ Retrying chunk ${i} as plain text (no Markdown)...`);
+                if (isLast) {
+                  await bot.sendMessage(chatId, chunks[i], {
+                    parse_mode: undefined, // Explicitly no Markdown
+                    reply_markup: {
+                      inline_keyboard: [
+                        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                      ]
+                    }
+                  });
+                } else {
+                  await bot.sendMessage(chatId, chunks[i], {
+                    parse_mode: undefined // Explicitly no Markdown
+                  });
+                }
+              } catch (retryError) {
+                console.error(`❌ Retry also failed for chunk ${i}:`, retryError.message);
+                if (isLast) {
+                  await bot.sendMessage(chatId, '❌ Помилка при відправці коментарів. Спробуйте ще раз.', {
+                    reply_markup: {
+                      inline_keyboard: [
+                        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                      ]
+                    }
+                  });
+                }
+              }
+            } else {
+              // Other error - show error message
+              if (isLast) {
+                await bot.sendMessage(chatId, '❌ Помилка при відправці коментарів. Спробуйте ще раз.', {
+                  reply_markup: {
+                    inline_keyboard: [
+                      [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                    ]
+                  }
+                });
+              }
+            }
+          }
+          
+          // Small delay between chunks to avoid rate limiting
+          if (!isLast) {
+            await new Promise(resolve => setTimeout(resolve, 300));
+          }
+        }
+
+      } catch (error) {
+        console.error(`❌ Error handling Barclay comments for user ${chatId}:`, error);
+        await bot.answerCallbackQuery(query.id, { text: 'Помилка при завантаженні' });
+        await bot.sendMessage(chatId, `❌ ${error.message || 'Помилка при завантаженні коментарів. Спробуйте ще раз.'}`, {
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+            ]
+          }
+        });
+      }
+      return; // Return early to avoid answering callback query again
+    }
+
     // Answer callback query to remove loading state
     bot.answerCallbackQuery(query.id);
   });
