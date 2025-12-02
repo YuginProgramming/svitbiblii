@@ -13,3 +13,5 @@ slovnyk-bibliynogo-bohoslovya.pdf
 # Log files
 *.log
 debug/*.log
+debug/svitbiblii-error.log
+debug/svitbiblii-out.log
