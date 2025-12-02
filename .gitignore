@@ -1,4 +1,13 @@
 node_modules/
 
+# Environment files
+.env
+config.env
+*.env
+
 # Local development files
 slovnyk-bibliynogo-bohoslovya.pdf
+
+# Log files
+*.log
+debug/*.log
