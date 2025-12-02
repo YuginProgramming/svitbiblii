@@ -9,8 +9,10 @@ import {
   createVerseNavButtons, 
   createActionButtons, 
   createVerseButtons,
+  createBarclayCommentsButton,
   filterEmptyButtonRows 
 } from './buttonCreators.js';
+import userLocationService from '../services/userLocationService.js';
 
 /**
  * Handle chapter selection and display
@@ -24,6 +26,9 @@ export async function handleChapterSelection(bot, chatId, index, userChapterInde
   userChapterIndex[chatId] = index;
 
   try {
+    // Update user location
+    userLocationService.updateLocation(chatId, index);
+
     const preview = await getChapterPreview(index);
     const totalChapters = await getTotalChapters();
     
@@ -33,6 +38,7 @@ export async function handleChapterSelection(bot, chatId, index, userChapterInde
     // Create all button types
     const verseNavButtons = createVerseNavButtons(index, 0, preview.hasMore);
     const actionButtons = createActionButtons(index, preview.hasMore, preview.hasReferences);
+    const barclayButton = createBarclayCommentsButton(index);
     const navButtons = createChapterNavButtons(index, totalChapters);
     const verseButtons = createVerseButtons(index, preview.verseCount || 5);
     
@@ -40,6 +46,7 @@ export async function handleChapterSelection(bot, chatId, index, userChapterInde
     const keyboard = [
       verseNavButtons,
       actionButtons,
+      barclayButton,
       navButtons,
       ...verseButtons
     ].filter(row => row.length > 0);
@@ -64,6 +71,9 @@ export async function handleChapterSelection(bot, chatId, index, userChapterInde
  */
 export async function handleFullChapter(bot, chatId, index, sendInChunks) {
   try {
+    // Update user location
+    userLocationService.updateLocation(chatId, index);
+
     const fullText = await getChapterText(index);
     const totalChapters = await getTotalChapters();
     

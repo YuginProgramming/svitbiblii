@@ -525,6 +525,175 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
       return; // Return early to avoid answering callback query again
     }
 
+    // Barclay comments from chapter handler
+    else if (data.startsWith("barclay_chapter_")) {
+      const chapterIndex = parseInt(data.split("_")[2], 10);
+      
+      try {
+        // Answer callback query immediately
+        await bot.answerCallbackQuery(query.id, { text: 'Завантаження коментарів...' });
+        
+        // Import required services
+        const AIService = (await import('../services/aiService.js')).default;
+        const userLocationService = (await import('../services/userLocationService.js')).default;
+        const { getChapterText, parseChapterContent } = await import('../epub-parser/index.js');
+        const { processChapterContent } = await import('../epub-parser/contentSeparator.js');
+        
+        // Update user location
+        userLocationService.updateLocation(chatId, chapterIndex);
+        
+        // Get user location for book name and chapter number
+        const location = userLocationService.getLocation(chatId);
+        if (!location) {
+          await bot.sendMessage(chatId, '❌ Не вдалося визначити ваше місцезнаходження.', {
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+              ]
+            }
+          });
+          return;
+        }
+        
+        // Get chapter text and parse verses
+        const fullText = await getChapterText(chapterIndex);
+        const processed = processChapterContent(fullText, {
+          includeReferences: false,
+          cleanInline: true
+        });
+        const parsed = parseChapterContent(processed.cleanMainText);
+        
+        if (!parsed.hasContent || parsed.verses.length === 0) {
+          await bot.sendMessage(chatId, '❌ Не вдалося знайти вірші в цьому розділі.', {
+            reply_markup: {
+              inline_keyboard: [
+                [{ text: "⬅️ Назад до розділу", callback_data: `chapter_${chapterIndex}` }],
+                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+              ]
+            }
+          });
+          return;
+        }
+        
+        // Format verses for the prompt (extract verse numbers and texts)
+        let versesText = '';
+        parsed.verses.forEach((verse) => {
+          // Extract verse number (first number in the verse string)
+          const verseMatch = verse.match(/^(\d+)\s*(.+)$/);
+          if (verseMatch) {
+            const verseNumber = verseMatch[1];
+            const verseText = verseMatch[2].trim();
+            versesText += `${verseNumber}. ${verseText}\n`;
+          } else {
+            // Fallback: use the whole verse if pattern doesn't match
+            versesText += `${verse}\n`;
+          }
+        });
+        
+        // Create prompt for Gemini AI (same as mailing)
+        const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${location.bookTitle}, Розділ ${location.chapterInBook}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
+        
+        // Show typing indicator
+        await bot.sendChatAction(chatId, 'typing');
+        
+        // Initialize AI service and generate response
+        const aiService = new AIService();
+        const userId = query.from.id;
+        const aiResponse = await aiService.generateResponse(userId, prompt);
+        
+        // Split response into chunks if needed
+        const chunks = aiService.splitMessage(aiResponse, 2000);
+        
+        // Send all chunks (as plain text to avoid Markdown parsing errors)
+        for (let i = 0; i < chunks.length; i++) {
+          const isLast = i === chunks.length - 1;
+          
+          try {
+            if (isLast) {
+              // Last chunk - send with menu buttons (plain text, no Markdown)
+              await bot.sendMessage(chatId, chunks[i], {
+                reply_markup: {
+                  inline_keyboard: [
+                    [{ text: "⬅️ Назад до розділу", callback_data: `chapter_${chapterIndex}` }],
+                    [{ text: "📋 Зміст книги", callback_data: "back_to_toc" }],
+                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                  ]
+                }
+              });
+            } else {
+              // Intermediate chunks - send without buttons (plain text)
+              await bot.sendMessage(chatId, chunks[i]);
+            }
+          } catch (sendError) {
+            // Log error but don't crash - try to continue with next chunk
+            console.error(`❌ Error sending chunk ${i} to user ${chatId}:`, sendError.message);
+            
+            // If it's a Markdown parsing error, try sending as plain text
+            if (sendError.message && (sendError.message.includes("can't parse entities") || sendError.message.includes("Bad Request"))) {
+              try {
+                console.log(`⚠️ Retrying chunk ${i} as plain text (no Markdown)...`);
+                if (isLast) {
+                  await bot.sendMessage(chatId, chunks[i], {
+                    parse_mode: undefined, // Explicitly no Markdown
+                    reply_markup: {
+                      inline_keyboard: [
+                        [{ text: "⬅️ Назад до розділу", callback_data: `chapter_${chapterIndex}` }],
+                        [{ text: "📋 Зміст книги", callback_data: "back_to_toc" }],
+                        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                      ]
+                    }
+                  });
+                } else {
+                  await bot.sendMessage(chatId, chunks[i], {
+                    parse_mode: undefined // Explicitly no Markdown
+                  });
+                }
+              } catch (retryError) {
+                console.error(`❌ Retry also failed for chunk ${i}:`, retryError.message);
+                if (isLast) {
+                  await bot.sendMessage(chatId, '❌ Помилка при відправці коментарів. Спробуйте ще раз.', {
+                    reply_markup: {
+                      inline_keyboard: [
+                        [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                      ]
+                    }
+                  });
+                }
+              }
+            } else {
+              // Other error - show error message
+              if (isLast) {
+                await bot.sendMessage(chatId, '❌ Помилка при відправці коментарів. Спробуйте ще раз.', {
+                  reply_markup: {
+                    inline_keyboard: [
+                      [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                    ]
+                  }
+                });
+              }
+            }
+          }
+          
+          // Small delay between chunks to avoid rate limiting
+          if (!isLast) {
+            await new Promise(resolve => setTimeout(resolve, 300));
+          }
+        }
+        
+      } catch (error) {
+        console.error(`❌ Error handling Barclay comments from chapter for user ${chatId}:`, error);
+        await bot.answerCallbackQuery(query.id, { text: 'Помилка при завантаженні' });
+        await bot.sendMessage(chatId, `❌ ${error.message || 'Помилка при завантаженні коментарів. Спробуйте ще раз.'}`, {
+          reply_markup: {
+            inline_keyboard: [
+              [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+            ]
+          }
+        });
+      }
+      return; // Return early to avoid answering callback query again
+    }
+
     // Answer callback query to remove loading state
     bot.answerCallbackQuery(query.id);
   });

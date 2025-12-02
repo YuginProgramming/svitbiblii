@@ -11,7 +11,6 @@ const mainMenu = {
   reply_markup: {
     keyboard: [
       [{ text: "Вибрати книгу" }],
-      [{ text: "Спілкуватися з ШІ" }],
       [{ text: "🏠 Головне меню" }]
     ],
     resize_keyboard: true,
@@ -133,27 +132,39 @@ function setupMainMenuHandlers(bot) {
         // Split into chunks if needed (max 2000 chars per message)
         const chunks = aiService.splitMessage(aiResponse, 2000);
 
-        // Send all chunks
+        // Send all chunks (as plain text to avoid Markdown parsing errors)
         for (let i = 0; i < chunks.length; i++) {
           const isLast = i === chunks.length - 1;
           
-          if (isLast) {
-            // Last chunk - send with menu buttons
-            await bot.sendMessage(chatId, chunks[i], {
-              parse_mode: 'Markdown',
-              reply_markup: {
-                inline_keyboard: [
-                  [{ text: "📖 Євангеліє від Матфея - Розділ 1", callback_data: "chapter_5" }],
-                  [{ text: "📋 Зміст книги", callback_data: "back_to_toc" }],
-                  [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-                ]
-              }
-            });
-          } else {
-            // Intermediate chunks - send without buttons
-            await bot.sendMessage(chatId, chunks[i], {
-              parse_mode: 'Markdown'
-            });
+          try {
+            if (isLast) {
+              // Last chunk - send with menu buttons (plain text, no Markdown)
+              await bot.sendMessage(chatId, chunks[i], {
+                reply_markup: {
+                  inline_keyboard: [
+                    [{ text: "📖 Євангеліє від Матфея - Розділ 1", callback_data: "chapter_5" }],
+                    [{ text: "📋 Зміст книги", callback_data: "back_to_toc" }],
+                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                  ]
+                }
+              });
+            } else {
+              // Intermediate chunks - send without buttons (plain text)
+              await bot.sendMessage(chatId, chunks[i]);
+            }
+          } catch (sendError) {
+            // Log error but don't crash - try to continue with next chunk
+            console.error(`❌ Error sending chunk ${i} to user ${chatId}:`, sendError.message);
+            // If it's the last chunk and it failed, at least try to send an error message
+            if (isLast) {
+              await bot.sendMessage(chatId, '❌ Помилка при відправці повідомлення. Спробуйте ще раз.', {
+                reply_markup: {
+                  inline_keyboard: [
+                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                  ]
+                }
+              });
+            }
           }
           
           // Small delay between chunks to avoid rate limiting

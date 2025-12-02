@@ -141,6 +141,17 @@ export function createActionButtons(chapterIndex, hasMore, hasReferences) {
 }
 
 /**
+ * Create Barclay comments button
+ * @param {number} chapterIndex - Current chapter index
+ * @returns {Array} Array with Barclay comments button row
+ */
+export function createBarclayCommentsButton(chapterIndex) {
+  return [
+    { text: "📖 Коментарі Вільяма Барклі", callback_data: `barclay_chapter_${chapterIndex}` }
+  ];
+}
+
+/**
  * Create global navigation buttons
  * @returns {Array} Array of global navigation buttons
  */

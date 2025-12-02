@@ -73,3 +73,5 @@ const MailingIteration = sequelize.define('MailingIteration', {
 
 export default MailingIteration;
 
+
+

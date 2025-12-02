@@ -41,3 +41,5 @@ async function syncMailingIterationsTable() {
 // Run the sync
 syncMailingIterationsTable();
 
+
+

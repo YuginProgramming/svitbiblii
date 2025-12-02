@@ -6,6 +6,17 @@ import { initializeTelegramUserMiddleware } from "./database/middleware/telegram
 import MailingService from "./services/mailingService.js";
 import SchedulerService from "./services/schedulerService.js";
 
+// Global error handlers to prevent bot crashes
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+  // Don't exit - log and continue
+});
+
+process.on('uncaughtException', (error) => {
+  console.error('❌ Uncaught Exception:', error);
+  // Don't exit immediately - log and let the process manager handle it
+  // In production, you might want to exit gracefully here
+});
 
 console.log('🚀 Starting EPUB Bot...');
 
@@ -55,27 +66,32 @@ setupMenuButton();
 
 // Start command
 bot.onText(/\/start/, async (msg) => {
-  const chatId = msg.chat.id;
-  userChapterIndex[chatId] = 5; // Start with first actual chapter (Matthew Chapter 1)
+  try {
+    const chatId = msg.chat.id;
+    userChapterIndex[chatId] = 5; // Start with first actual chapter (Matthew Chapter 1)
 
-  await getTotalChapters();
+    await getTotalChapters();
 
-  await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", mainMenu);
+    await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", mainMenu);
 
-  await bot.sendMessage(chatId, "Щоб почати читати, натисни:", {
-    reply_markup: {
-      inline_keyboard: [
-        [{ text: "📖 Євангеліє від Матфея - Розділ 1", callback_data: "chapter_5" }]
-      ]
-    }
-  });
+    await bot.sendMessage(chatId, "Щоб почати читати, натисни:", {
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: "📖 Євангеліє від Матфея - Розділ 1", callback_data: "chapter_5" }]
+        ]
+      }
+    });
+  } catch (error) {
+    console.error('❌ Error in /start command:', error);
+  }
 });
 
 // Help command
 bot.onText(/\/help/, async (msg) => {
-  const chatId = msg.chat.id;
-  
-  const helpText = `📚 *Як користуватися ботом:*
+  try {
+    const chatId = msg.chat.id;
+    
+    const helpText = `📚 *Як користуватися ботом:*
 
 🏠 *Головне меню* - повернутися до головного меню
 📋 *Зміст книги* - переглянути структуру книги
@@ -91,8 +107,16 @@ bot.onText(/\/help/, async (msg) => {
 /first - Перший розділ
 
 *Приємного читання!* 📖✨`;
-  
-  await bot.sendMessage(chatId, helpText, { parse_mode: 'Markdown' });
+    
+    await bot.sendMessage(chatId, helpText, { parse_mode: 'Markdown' });
+  } catch (error) {
+    console.error('❌ Error in /help command:', error);
+    try {
+      await bot.sendMessage(msg.chat.id, '❌ Помилка при обробці команди. Спробуйте ще раз.');
+    } catch (sendError) {
+      console.error('❌ Failed to send error message:', sendError);
+    }
+  }
 });
 
 
@@ -132,8 +156,12 @@ bot.onText(/\/toc/, async (msg) => {
       }
     });
   } catch (err) {
-    await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити зміст книги.");
-    console.error(err);
+    console.error('❌ Error in /toc command:', err);
+    try {
+      await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити зміст книги.");
+    } catch (sendError) {
+      console.error('❌ Failed to send error message:', sendError);
+    }
   }
 });
 
@@ -159,8 +187,12 @@ bot.onText(/\/first/, async (msg) => {
       }
     });
   } catch (err) {
-    await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити перший розділ.");
-    console.error(err);
+    console.error('❌ Error in /first command:', err);
+    try {
+      await bot.sendMessage(chatId, "⚠️ Не вдалося завантажити перший розділ.");
+    } catch (sendError) {
+      console.error('❌ Failed to send error message:', sendError);
+    }
   }
 });
 

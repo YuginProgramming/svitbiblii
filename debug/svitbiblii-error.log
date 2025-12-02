@@ -1,210 +1,4 @@
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"EFATAL","message":"EFATAL: Error: read ECONNRESET"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 429 Too Many Requests: retry after 5"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 502 Bad Gateway"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-error: [polling_error] {"code":"ETELEGRAM","message":"ETELEGRAM: 409 Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"}
-Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/svitbiblii/botInstance.js
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@google/generative-ai' imported from /root/svitbiblii/services/aiService.js
     at packageResolve (node:internal/modules/esm/resolve:854:9)
     at moduleResolve (node:internal/modules/esm/resolve:927:18)
     at defaultResolve (node:internal/modules/esm/resolve:1169:11)
@@ -215,7 +9,18 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
     at link (node:internal/modules/esm/module_job:95:36) {
   code: 'ERR_MODULE_NOT_FOUND'
 }
-❌ Error in book selection: TelegramError: ETELEGRAM: 400 Bad Request: message can't be deleted for everyone
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@google/generative-ai' imported from /root/svitbiblii/services/aiService.js
+    at packageResolve (node:internal/modules/esm/resolve:854:9)
+    at moduleResolve (node:internal/modules/esm/resolve:927:18)
+    at defaultResolve (node:internal/modules/esm/resolve:1169:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:540:12)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:509:25)
+    at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:239:38)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:96:40)
+    at link (node:internal/modules/esm/module_job:95:36) {
+  code: 'ERR_MODULE_NOT_FOUND'
+}
+❌ Error in AI chat for user 269694206: TelegramError: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1947
     at /root/svitbiblii/node_modules/node-telegram-bot-api/src/telegram.js:316:15
     at tryCatcher (/root/svitbiblii/node_modules/bluebird/js/release/util.js:16:23)
     at Promise._settlePromiseFromHandler (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:547:31)
@@ -255,11 +60,11 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       'Server',
       'nginx/1.18.0',
       'Date',
-      'Sat, 06 Sep 2025 09:31:59 GMT',
+      'Wed, 19 Nov 2025 09:21:49 GMT',
       'Content-Type',
       'application/json',
       'Content-Length',
-      '96',
+      '138',
       'Connection',
       'keep-alive',
       'Strict-Transport-Security',
@@ -354,17 +159,17 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       _removedContLen: false,
       _removedTE: false,
       strictContentLength: false,
-      _contentLength: 33,
+      _contentLength: 7971,
       _hasBody: true,
       _trailer: '',
       finished: true,
       _headerSent: true,
       _closed: true,
       socket: [TLSSocket],
-      _header: 'POST /bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage HTTP/1.1\r\n' +
+      _header: 'POST /bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage HTTP/1.1\r\n' +
         'host: api.telegram.org\r\n' +
         'content-type: application/x-www-form-urlencoded\r\n' +
-        'content-length: 33\r\n' +
+        'content-length: 7971\r\n' +
         'Connection: keep-alive\r\n' +
         '\r\n',
       _keepAliveTimeout: 0,
@@ -375,7 +180,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       maxHeaderSize: undefined,
       insecureHTTPParser: undefined,
       joinDuplicateHeaders: undefined,
-      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       _ended: true,
       res: [Circular *1],
       aborted: false,
@@ -383,7 +188,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       upgradeOrConnect: false,
       parser: null,
       maxHeadersCount: null,
-      reusedSocket: true,
+      reusedSocket: false,
       host: 'api.telegram.org',
       protocol: 'https:',
       [Symbol(shapeMode)]: false,
@@ -439,14 +244,14 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       _jar: undefined,
       port: 443,
       host: 'api.telegram.org',
-      body: 'chat_id=269694206&message_id=1078',
-      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      body: 'parse_mode=Markdown&reply_markup=%7B%22inline_keyboard%22%3A%5B%5B%7B%22text%22%3A%22%F0%9F%93%96%20%D0%84%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%96%D1%94%20%D0%B2%D1%96%D0%B4%20%D0%9C%D0%B0%D1%82%D1%84%D0%B5%D1%8F%20-%20%D0%A0%D0%BE%D0%B7%D0%B4%D1%96%D0%BB%201%22%2C%22callback_data%22%3A%22chapter_5%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%93%8B%20%D0%97%D0%BC%D1%96%D1%81%D1%82%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8%22%2C%22callback_data%22%3A%22back_to_toc%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%8F%A0%20%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8E%22%2C%22callback_data%22%3A%22main_menu%22%7D%5D%5D%7D&chat_id=269694206&text=%D0%92%D1%96%D0%BB%D1%8C%D1%8F%D0%BC%20%D0%91%D0%B0%D1%80%D0%BA%D0%BB%D1%96%2C%20%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D1%82%D1%83%D1%8E%D1%87%D0%B8%20%D1%86%D1%96%20%D0%B2%D1%96%D1%80%D1%88%D1%96%2C%20%D0%BD%D0%B0%D0%B3%D0%BE%D0%BB%D0%BE%D1%88%D1%83%D1%94%20%D0%BD%D0%B0%20%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%D0%B2%D1%96%D0%BB%D0%B5%D1%8F%D1%85%20%D1%82%D0%B0%20%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%BD%D1%96%D0%B9%20%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%96%20%D1%85%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%8F%D0%BD.%0A%0A%2A%2A%D0%A9%D0%BE%D0%B4%D0%BE%20%D0%B2%D1%96%D1%80%D1%88%D1%96%D0%B2%209-10%20%28%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D0%BB%D0%B5%D1%97%29%3A%2A%2A%0A%0A%D0%91%D0%B0%D1%80%D0%BA%D0%BB%D1%96%20%D0%BF%D1%96%D0%B4%D0%BA%D1%80%D0%B5%D1%81%D0%BB%D1%8E%D1%94%2C%20%D1%89%D0%BE%20%D0%9F%D0%B5%D1%82%D1%80%D0%BE%20%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D1%83%D1%94%20%D1%82%D0%B8%D1%82%D1%83%D0%BB%D0%B8%2C%20%D1%8F%D0%BA%D1%96%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%D0%BB%D0%B5%D0%B6%D0%B0%D0%BB%D0%B8%20%D0%B2%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%BD%D0%BE%20%D0%86%D0%B7%D1%80%D0%B0%D1%97%D0%BB%D1%8E%2C%20%D1%96%20%D0%B7%D0%B0%D1%81%D1%82%D0%BE%D1%81%D0%BE%D0%B2%D1%83%D1%94%20%D1%97%D1%85%20%D0%B4%D0%BE%20%D0%BD%D0%BE%D0%B2%D0%BE%D1%97%20%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D0%BD%D0%BE%D1%82%D0%B8%20%E2%80%94%20%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B8.%0A%0A%2A%20%20%20%2A%2A%C2%AB%D0%A0%D1%96%D0%B4%20%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D0%B8%D0%B9%2C%20%D1%86%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%B5%20%D1%81%D0%B2%D1%8F%D1%89%D0%B5%D0%BD%D1%81%D1%82%D0%B2%D0%BE%C2%BB%2A%2A%3A%20%D0%A5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%8F%D0%BD%D0%B8%20%D0%BE%D0%B1%D1%80%D0%B0%D0%BD%D1%96%20%D0%BD%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%81%D0%BE%D0%B1%D0%BB%D0%B8%D0%B2%D0%B8%D1%85%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%B3%2C%20%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%81%D0%BE%D0%B1%D0%BB%D0%B8%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%81%D0%BB%D1%83%D0%B6%D1%96%D0%BD%D0%BD%D1%8F.%20%D0%9A%D0%BE%D0%B6%D0%B5%D0%BD%20%D0%B2%D1%96%D1%80%D1%8F%D0%BD%D0%B8%D0%BD%20%D1%94%20%D1%81%D0%B2%D1%8F%D1%89%D0%B5%D0%BD%D0%B8%D0%BA%D0%BE%D0%BC%2C%20%D1%89%D0%BE%20%D0%BC%D0%B0%D1%94%20%D0%BF%D1%80%D1%8F%D0%BC%D0%B8%D0%B9%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%B4%D0%BE%20%D0%91%D0%BE%D0%B3%D0%B0%20%D1%96%20%D0%BE%D0%B1%D0%BE%D0%B2%27%D1%8F%D0%B7%D0%BE%D0%BA%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B8%20%D0%B4%D0%BE%20%D0%9D%D1%8C%D0%BE%D0%B3%D0%BE%20%D1%96%D0%BD%D1%88%D0%B8%D1%85.%0A%2A%20%20%20%2A%2A%C2%AB%D0%A0%D1%96%D0%B4%20%D1%81%D0%B2%D1%8F%D1%82%D0%B8%D0%B9%C2%BB%2A%2A%3A%20%C2%AB%D0%A1%D0%B2%D1%8F%D1%82%D0%B8%D0%B9%C2%BB%20%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D1%94%20%C2%AB%D0%B2%D1%96%D0%B4%D0%BE%D0%BA%D1%80%D0%B5%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%B4%D0%BB%D1%8F%20%D0%91%D0%BE%D0%B3%D0%B0%C2%BB.%20%D0%96%D0%B8%D1%82%D1%82%D1%8F%20%D1%85%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%8F%D0%BD%D0%B8%D0%BD%D0%B0%20%D0%BC%D0%B0%D1%94%20%D0%B2%D1%96%D0%B4%D1%80%D1%96%D0%B7%D0%BD%D1%8F%D1%82%D0%B8%D1%81%D1%8F%20%D0%B2%D1%96%D0%B4%20%D1%81%D0%B2%D1%96%D1%82%D1%81%D1%8C%D0%BA%D0%BE%D0%B3%D0%BE.%0A%2A%20%20%20%2A%2A%C2%AB%D0%9A%D0%BE%D0%BB%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%C2%BB%2A%2A%3A%20%D0%A6%D0%B5%20%D0%BD%D0%B0%D0%B3%D0%B0%D0%B4%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%2C%20%D0%BE%D1%81%D0%BE%D0%B1%D0%BB%D0%B8%D0%B2%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D1%8F%D0%B7%D0%B8%D1%87%D0%BD%D0%B8%D0%BA%D1%96%D0%B2%2C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B8%D0%B2%D0%BE%D0%B2%D0%B8%D0%B6%D0%BD%D1%83%20%D0%91%D0%BE%D0%B6%D1%83%20%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%82%D1%8C.%20%D0%A2%D1%96%2C%20%D1%85%D1%82%D0%BE%20%D0%B1%D1%83%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B7%D0%B0%20%D0%B7%D0%B0%D0%B2%D1%96%D1%82%D0%BE%D0%BC%2C%20%D1%82%D0%B5%D0%BF%D0%B5%D1%80%20%D1%81%D1%82%D0%B0%D0%BB%D0%B8%20%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BD%D0%BE%D1%8E%20%D0%91%D0%BE%D0%B6%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D1%83.%0A%0A%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0%20%D0%BC%D0%B5%D1%82%D0%B0%20%D0%B2%D1%81%D1%96%D1%85%20%D1%86%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%D0%B2%D1%96%D0%BB%D0%B5%D1%97%D0%B2%20%E2%80%94%20%D0%BD%D0%B5%20%D1%81%D0%B0%D0%BC%D0%BE%D0%B2%D0%B8%D1%85%D0%B2%D0%B0%D0%BB%D1%8F%D0%BD%D0%BD%D1%8F%2C%20%D0%B0%20%C2%AB%D1%81%D0%BF%D0%BE%D0%B2%D1%96%D1%89%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%87%D0%B5%D1%81%D0%BD%D0%BE%D1%82%C2%BB%20%D0%91%D0%BE%D0%B3%D0%B0%2C%20%D0%AF%D0%BA%D0%B8%D0%B9%20%D1%97%D1%85%20%D0%BF%D0%BE%D0%BA%D0%BB%D0%B8%D0%BA%D0%B0%D0%B2.%0A%0A%2A%2A%D0%A9%D0%BE%D0%B4%D0%BE%20%D0%B2%D1%96%D1%80%D1%88%D0%B0%2011%20%28%D0%92%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D1%96%D1%81%D1%82%D1%8C%29%3A%2A%2A%0A%0A%2A%20%20%20%2A%2A%C2%AB%D0%A7%D1%83%D0%B6%D0%B8%D0%BD%D1%86%D1%96%20%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B6%D1%96%C2%BB%2A%2A%3A%20%D0%91%D0%B0%D1%80%D0%BA%D0%BB%D1%96%20%D0%BF%D0%BE%D1%8F%D1%81%D0%BD%D1%8E%D1%94%2C%20%D1%89%D0%BE%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%B6%D0%BD%D1%8F%20%D0%B1%D0%B0%D1%82%D1%8C%D0%BA%D1%96%D0%B2%D1%89%D0%B8%D0%BD%D0%B0%20%D1%85%D1%80%D0%B8%D1%81%D1%82%D0%B8%D1%8F%D0%BD%D0%B8%D0%BD%D0%B0%20%E2%80%94%20%D0%BD%D0%B0%20%D0%BD%D0%B5%D0%B1%D1%96.%20%D0%96%D0%B8%D0%B2%D1%83%D1%87%D0%B8%20%D0%BD%D0%B0%20%D0%B7%D0%B5%D0%BC%D0%BB%D1%96%2C%20%D0%B2%D1%96%D0%BD%20%D1%94%20%D0%BB%D0%B8%D1%88%D0%B5%20%D1%82%D0%B8%D0%BC%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%B8%D0%BC%20%D0%BC%D0%B5%D1%88%D0%BA%D0%B0%D0%BD%D1%86%D0%B5%D0%BC.%0A%2A%20%20%20%2A%2A%C2%AB%D0%A3%D1%82%D1%80%D0%B8%D0%BC%D1%83%D0%B9%D1%82%D0%B5%D1%81%D1%8F%20%D0%B2%D1%96%D0%B4%20%D0%BF%D0%BB%D0%BE%D1%82%D1%81%D1%8C%D0%BA%D0%B8%D1%85%20%D0%BF%D1%80%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%B9%C2%BB%2A%2A%3A%20%D0%9E%D1%81%D0%BA%D1%96%D0%BB%D1%8C%D0%BA%D0%B8%20%D1%86%D0%B5%D0%B9%20%D1%81%D0%B2%D1%96%D1%82%20%D0%BD%D0%B5%20%D1%94%20%D0%BD%D0%B0%D1%88%D0%B8%D0%BC%20%D0%BF%D0%BE%D1%81%D1%82%D1%96%D0%B9%D0%BD%D0%B8%D0%BC%20%D0%B4%D0%BE%D0%BC%D0%BE%D0%BC%2C%20%D0%BC%D0%B8%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D0%B2%D0%B8%D0%BD%D0%BD%D1%96%20%D0%BF%D1%80%D0%B8%D0%B2%27%D1%8F%D0%B7%D1%83%D0%B2%D0%B0%D1%82%D0%B8%D1%81%D1%8F%20%D0%B4%D0%BE%20%D0%B9%D0%BE%D0%B3%D0%BE%20%D1%82%D0%B8%D0%BC%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%B8%D1%85%20%D0%B1%D0%B0%D0%B6%D0%B0%D0%BD%D1%8C.%20%D0%A6%D1%96%20%D0%BF%D1%80%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%81%D1%82%D1%96%20%D0%BD%D0%B0%D0%BB%D0%B5%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B8%D0%B6%D1%87%D1%96%D0%B9%2C%20%D1%82%D0%B2%D0%B0%D1%80%D0%B8%D0%BD%D0%BD%D1%96%D0%B9%20%D0%BF%D1%80%D0%B8%D1%80%D0%BE%D0%B4%D1%96%20%D0%BB%D1%8E%D0%B4%D0%B8%D0%BD%D0%B8%20%D1%96%20%D0%B2%D0%BE%D1%8E%D1%8E%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%82%D0%B8%20%D1%97%D1%97%20%D0%B4%D1%83%D1%85%D1%83%2C%20%D1%8F%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B0%D0%B3%D0%BD%D0%B5%20%D0%B4%D0%BE%20%D0%91%D0%BE%D0%B3%D0%B0.%0A%0A%D0%9E%D1%82%D0%B6%D0%B5%2C%20%D0%BD%D0%B0%D1%88%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%20%D0%BD%D0%B5%D0%B1%D0%B5%D1%81%D0%BD%D0%B8%D1%85%20%D0%B3%D1%80%D0%BE%D0%BC%D0%B0%D0%B4%D1%8F%D0%BD%20%D0%BC%D0%B0%D1%94%20%D0%B2%D0%B8%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D0%B8%20%D0%BD%D0%B0%D1%88%D1%83%20%D0%BF%D0%BE%D0%B2%D0%B5%D0%B4%D1%96%D0%BD%D0%BA%D1%83%20%D0%BD%D0%B0%20%D0%B7%D0%B5%D0%BC%D0%BB%D1%96.',
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       httpModule: [Object],
       agentClass: [Function: Agent],
       agentOptions: [Object],
       agent: [Agent],
       _started: true,
-      href: 'https://api.telegram.org/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      href: 'https://api.telegram.org/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       req: [ClientRequest],
       ntick: true,
       response: [Circular *1],
@@ -464,15 +269,15 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
     body: {
       ok: false,
       error_code: 400,
-      description: "Bad Request: message can't be deleted for everyone"
+      description: "Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1947"
     },
     [Symbol(shapeMode)]: true,
     [Symbol(kCapture)]: false,
     [Symbol(kHeaders)]: {
       server: 'nginx/1.18.0',
-      date: 'Sat, 06 Sep 2025 09:31:59 GMT',
+      date: 'Wed, 19 Nov 2025 09:21:49 GMT',
       'content-type': 'application/json',
-      'content-length': '96',
+      'content-length': '138',
       connection: 'keep-alive',
       'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
       'access-control-allow-origin': '*',
@@ -483,7 +288,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
     [Symbol(kTrailersCount)]: 0
   }
 }
-❌ Error in book selection: TelegramError: ETELEGRAM: 400 Bad Request: message can't be deleted for everyone
+❌ Error in AI chat for user 269694206: TelegramError: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1106
     at /root/svitbiblii/node_modules/node-telegram-bot-api/src/telegram.js:316:15
     at tryCatcher (/root/svitbiblii/node_modules/bluebird/js/release/util.js:16:23)
     at Promise._settlePromiseFromHandler (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:547:31)
@@ -523,11 +328,11 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       'Server',
       'nginx/1.18.0',
       'Date',
-      'Sat, 06 Sep 2025 09:32:02 GMT',
+      'Wed, 19 Nov 2025 09:22:32 GMT',
       'Content-Type',
       'application/json',
       'Content-Length',
-      '96',
+      '138',
       'Connection',
       'keep-alive',
       'Strict-Transport-Security',
@@ -622,17 +427,17 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       _removedContLen: false,
       _removedTE: false,
       strictContentLength: false,
-      _contentLength: 33,
+      _contentLength: 4736,
       _hasBody: true,
       _trailer: '',
       finished: true,
       _headerSent: true,
       _closed: true,
       socket: [TLSSocket],
-      _header: 'POST /bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage HTTP/1.1\r\n' +
+      _header: 'POST /bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage HTTP/1.1\r\n' +
         'host: api.telegram.org\r\n' +
         'content-type: application/x-www-form-urlencoded\r\n' +
-        'content-length: 33\r\n' +
+        'content-length: 4736\r\n' +
         'Connection: keep-alive\r\n' +
         '\r\n',
       _keepAliveTimeout: 0,
@@ -643,7 +448,7 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       maxHeaderSize: undefined,
       insecureHTTPParser: undefined,
       joinDuplicateHeaders: undefined,
-      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       _ended: true,
       res: [Circular *1],
       aborted: false,
@@ -707,14 +512,14 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
       _jar: undefined,
       port: 443,
       host: 'api.telegram.org',
-      body: 'chat_id=269694206&message_id=1078',
-      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      body: 'parse_mode=Markdown&reply_markup=%7B%22inline_keyboard%22%3A%5B%5B%7B%22text%22%3A%22%F0%9F%93%96%20%D0%84%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%96%D1%94%20%D0%B2%D1%96%D0%B4%20%D0%9C%D0%B0%D1%82%D1%84%D0%B5%D1%8F%20-%20%D0%A0%D0%BE%D0%B7%D0%B4%D1%96%D0%BB%201%22%2C%22callback_data%22%3A%22chapter_5%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%93%8B%20%D0%97%D0%BC%D1%96%D1%81%D1%82%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8%22%2C%22callback_data%22%3A%22back_to_toc%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%8F%A0%20%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8E%22%2C%22callback_data%22%3A%22main_menu%22%7D%5D%5D%7D&chat_id=269694206&text=%D0%A6%D0%B5%20%D1%82%D0%B5%D1%85%D0%BD%D1%96%D1%87%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%B8%D0%BB%D0%BA%D0%B0%2C%20%D1%8F%D0%BA%D0%B0%20%D0%B2%D0%B8%D0%BD%D0%B8%D0%BA%D0%B0%D1%94%20%D0%BF%D1%80%D0%B8%20%D0%B2%D1%96%D0%B4%D0%BF%D1%80%D0%B0%D0%B2%D1%86%D1%96%20%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20Telegram%20API%20%28%D0%BD%D0%B0%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%2C%20%D0%B1%D0%BE%D1%82%D0%BE%D0%BC%29.%0A%0A%2A%2A%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BC%D0%B8%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D0%BC%D0%B8%3A%2A%2A%0A%0A%D0%9F%D0%BE%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%2C%20%D1%8F%D0%BA%D0%B5%20%D0%BD%D0%B0%D0%BC%D0%B0%D0%B3%D0%B0%D0%BB%D0%B8%D1%81%D1%8F%20%D0%BD%D0%B0%D0%B4%D1%96%D1%81%D0%BB%D0%B0%D1%82%D0%B8%2C%20%D0%BC%D0%B0%D0%BB%D0%BE%20%D0%BF%D0%BE%D0%BC%D0%B8%D0%BB%D0%BA%D1%83%20%D1%83%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%96%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83%20%28%D0%BD%D0%B0%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%2C%20%D0%B6%D0%B8%D1%80%D0%BD%D0%B8%D0%B9%20%D1%88%D1%80%D0%B8%D1%84%D1%82%2C%20%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%2C%20%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F%29.%0A%0A%2A%2A%D0%A9%D0%BE%20%D1%86%D0%B5%20%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D1%94%3A%2A%2A%0A%0A%2A%20%20%20%2A%2A%60400%20Bad%20Request%60%2A%2A%3A%20%D0%97%D0%B0%D0%BF%D0%B8%D1%82%20%D0%B4%D0%BE%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%96%D0%B2%20Telegram%20%D0%B1%D1%83%D0%B2%20%D0%BD%D0%B5%D0%BA%D0%BE%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D0%B8%D0%BC.%0A%2A%20%20%20%2A%2A%60can%27t%20parse%20entities%60%2A%2A%3A%20Telegram%20%D0%BD%D0%B5%20%D0%B7%D0%BC%D1%96%D0%B3%20%D1%80%D0%BE%D0%B7%D1%96%D0%B1%D1%80%D0%B0%D1%82%D0%B8%20%22%D1%81%D1%83%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%96%22%20%E2%80%94%20%D1%82%D0%BE%D0%B1%D1%82%D0%BE%20%D1%82%D0%B5%D0%B3%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F.%0A%2A%20%20%20%2A%2A%60Can%27t%20find%20end%20of%20the%20entity%60%2A%2A%3A%20%D0%91%D1%83%D0%BB%D0%BE%20%D0%B2%D1%96%D0%B4%D0%BA%D1%80%D0%B8%D1%82%D0%BE%20%D1%82%D0%B5%D0%B3%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%28%D0%BD%D0%B0%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%2C%20%60%3Cb%3E%60%20%D0%B4%D0%BB%D1%8F%20%D0%B6%D0%B8%D1%80%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83%29%2C%20%D0%B0%D0%BB%D0%B5%20%D0%B9%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B1%D1%83%D0%BB%D0%BE%20%D0%B7%D0%B0%D0%BA%D1%80%D0%B8%D1%82%D0%BE%20%28%D0%BD%D0%B5%D0%BC%D0%B0%D1%94%20%60%3C%2Fb%3E%60%29.%0A%0A%2A%2A%D0%9F%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%3A%2A%2A%0A%0A%2A%20%20%20%2A%2A%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%3A%2A%2A%20%60%3Cb%3E%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%3C%2Fb%3E%60%0A%2A%20%20%20%2A%2A%D0%9D%D0%B5%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%20%28%D0%B2%D0%B8%D0%BA%D0%BB%D0%B8%D0%BA%D0%B0%D1%94%20%D0%BF%D0%BE%D0%BC%D0%B8%D0%BB%D0%BA%D1%83%29%3A%2A%2A%20%60%3Cb%3E%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%60%0A%0A%2A%2A%D0%A0%D1%96%D1%88%D0%B5%D0%BD%D0%BD%D1%8F%3A%2A%2A%0A%0A%D0%A6%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA%D0%B0%20%D0%B1%D0%BE%D1%82%D0%B0.%20%D0%99%D0%BE%D0%BC%D1%83%20%D0%BF%D0%BE%D1%82%D1%80%D1%96%D0%B1%D0%BD%D0%BE%20%D0%B2%D0%B8%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D0%B8%20%D0%BA%D0%BE%D0%B4%2C%20%D1%8F%D0%BA%D0%B8%D0%B9%20%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D1%83%D1%94%20%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%2C%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D0%BE%D0%BD%D0%B0%D0%B2%D1%88%D0%B8%D1%81%D1%8C%2C%20%D1%89%D0%BE%20%D0%B2%D1%81%D1%96%20%D1%82%D0%B5%D0%B3%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%B2%D1%96%D0%B4%D0%BA%D1%80%D0%B8%D0%B2%D0%B0%D1%8E%D1%82%D1%8C%D1%81%D1%8F%20%D1%82%D0%B0%20%D0%B7%D0%B0%D0%BA%D1%80%D0%B8%D0%B2%D0%B0%D1%8E%D1%82%D1%8C%D1%81%D1%8F.',
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       httpModule: [Object],
       agentClass: [Function: Agent],
       agentOptions: [Object],
       agent: [Agent],
       _started: true,
-      href: 'https://api.telegram.org/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/deleteMessage',
+      href: 'https://api.telegram.org/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
       req: [ClientRequest],
       ntick: true,
       response: [Circular *1],
@@ -732,15 +537,15 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
     body: {
       ok: false,
       error_code: 400,
-      description: "Bad Request: message can't be deleted for everyone"
+      description: "Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1106"
     },
     [Symbol(shapeMode)]: true,
     [Symbol(kCapture)]: false,
     [Symbol(kHeaders)]: {
       server: 'nginx/1.18.0',
-      date: 'Sat, 06 Sep 2025 09:32:02 GMT',
+      date: 'Wed, 19 Nov 2025 09:22:32 GMT',
       'content-type': 'application/json',
-      'content-length': '96',
+      'content-length': '138',
       connection: 'keep-alive',
       'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
       'access-control-allow-origin': '*',
@@ -751,6 +556,271 @@ Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'dotenv' imported from /root/s
     [Symbol(kTrailersCount)]: 0
   }
 }
-❌ Failed to send verses to user 445285237: ETELEGRAM: 403 Forbidden: bot was blocked by the user
-❌ Failed to send verses to user 6675460716: ETELEGRAM: 403 Forbidden: bot was blocked by the user
-❌ Failed to send verses to user 7506650215: ETELEGRAM: 403 Forbidden: bot was blocked by the user
+❌ Error in AI chat for user 5239759452: TelegramError: ETELEGRAM: 400 Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1564
+    at /root/svitbiblii/node_modules/node-telegram-bot-api/src/telegram.js:316:15
+    at tryCatcher (/root/svitbiblii/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:547:31)
+    at Promise._settlePromise (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:604:18)
+    at Promise._settlePromise0 (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:649:10)
+    at Promise._settlePromises (/root/svitbiblii/node_modules/bluebird/js/release/promise.js:729:18)
+    at _drainQueueStep (/root/svitbiblii/node_modules/bluebird/js/release/async.js:93:12)
+    at _drainQueue (/root/svitbiblii/node_modules/bluebird/js/release/async.js:86:9)
+    at Async._drainQueues (/root/svitbiblii/node_modules/bluebird/js/release/async.js:102:5)
+    at Async.drainQueues [as _onImmediate] (/root/svitbiblii/node_modules/bluebird/js/release/async.js:15:14)
+    at process.processImmediate (node:internal/timers:483:21) {
+  code: 'ETELEGRAM',
+  response: <ref *1> IncomingMessage {
+    _events: {
+      close: [Array],
+      error: [Function (anonymous)],
+      data: [Function (anonymous)],
+      end: [Array],
+      readable: undefined
+    },
+    _readableState: ReadableState {
+      highWaterMark: 16384,
+      buffer: [],
+      bufferIndex: 0,
+      length: 0,
+      pipes: [],
+      awaitDrainWriters: null,
+      [Symbol(kState)]: 194779004
+    },
+    _maxListeners: undefined,
+    socket: null,
+    httpVersionMajor: 1,
+    httpVersionMinor: 1,
+    httpVersion: '1.1',
+    complete: true,
+    rawHeaders: [
+      'Server',
+      'nginx/1.18.0',
+      'Date',
+      'Sun, 30 Nov 2025 15:18:26 GMT',
+      'Content-Type',
+      'application/json',
+      'Content-Length',
+      '138',
+      'Connection',
+      'keep-alive',
+      'Strict-Transport-Security',
+      'max-age=31536000; includeSubDomains; preload',
+      'Access-Control-Allow-Origin',
+      '*',
+      'Access-Control-Expose-Headers',
+      'Content-Length,Content-Type,Date,Server,Connection'
+    ],
+    rawTrailers: [],
+    joinDuplicateHeaders: undefined,
+    aborted: false,
+    upgrade: false,
+    url: '',
+    method: null,
+    statusCode: 400,
+    statusMessage: 'Bad Request',
+    client: TLSSocket {
+      _tlsOptions: [Object],
+      _secureEstablished: true,
+      _securePending: false,
+      _newSessionPending: false,
+      _controlReleased: true,
+      secureConnecting: false,
+      _SNICallback: null,
+      servername: 'api.telegram.org',
+      alpnProtocol: false,
+      authorized: true,
+      authorizationError: null,
+      encrypted: true,
+      _events: [Object: null prototype],
+      _eventsCount: 9,
+      connecting: false,
+      _hadError: false,
+      _parent: null,
+      _host: 'api.telegram.org',
+      _closeAfterHandlingError: false,
+      _readableState: [ReadableState],
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _maxListeners: undefined,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: undefined,
+      _server: null,
+      ssl: [TLSWrap],
+      _requestCert: true,
+      _rejectUnauthorized: true,
+      parser: null,
+      _httpMessage: null,
+      autoSelectFamilyAttemptedAddresses: [Array],
+      timeout: 0,
+      [Symbol(alpncallback)]: null,
+      [Symbol(res)]: [TLSWrap],
+      [Symbol(verified)]: true,
+      [Symbol(pendingSession)]: null,
+      [Symbol(async_id_symbol)]: -1,
+      [Symbol(kHandle)]: [TLSWrap],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: null,
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(shapeMode)]: true,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: false,
+      [Symbol(kSetKeepAlive)]: true,
+      [Symbol(kSetKeepAliveInitialDelay)]: 1,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(connect-options)]: [Object]
+    },
+    _consuming: false,
+    _dumped: false,
+    req: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: 6771,
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      socket: [TLSSocket],
+      _header: 'POST /bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage HTTP/1.1\r\n' +
+        'host: api.telegram.org\r\n' +
+        'content-type: application/x-www-form-urlencoded\r\n' +
+        'content-length: 6771\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
+      _ended: true,
+      res: [Circular *1],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: false,
+      host: 'api.telegram.org',
+      protocol: 'https:',
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    _eventsCount: 4,
+    request: Request {
+      _events: [Object: null prototype],
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      method: 'POST',
+      simple: false,
+      resolveWithFullResponse: true,
+      forever: true,
+      readable: true,
+      writable: true,
+      explicitMethod: true,
+      _qs: [Querystring],
+      _auth: [Auth],
+      _multipart: [Multipart],
+      _redirect: [Redirect],
+      _tunnel: [Tunnel],
+      _rp_resolve: [Function (anonymous)],
+      _rp_reject: [Function (anonymous)],
+      _rp_promise: [Promise [Object]],
+      _rp_callbackOrig: undefined,
+      callback: [Function (anonymous)],
+      _rp_options: [Object],
+      headers: [Object],
+      setHeader: [Function (anonymous)],
+      hasHeader: [Function (anonymous)],
+      getHeader: [Function (anonymous)],
+      removeHeader: [Function (anonymous)],
+      localAddress: undefined,
+      pool: [Object],
+      dests: [],
+      __isRequestRequest: true,
+      _callback: [Function: RP$callback],
+      uri: [Url],
+      proxy: null,
+      tunnel: true,
+      setHost: true,
+      originalCookieHeader: undefined,
+      _disableCookies: true,
+      _jar: undefined,
+      port: 443,
+      host: 'api.telegram.org',
+      body: 'parse_mode=Markdown&reply_markup=%7B%22inline_keyboard%22%3A%5B%5B%7B%22text%22%3A%22%F0%9F%93%96%20%D0%84%D0%B2%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D1%96%D1%94%20%D0%B2%D1%96%D0%B4%20%D0%9C%D0%B0%D1%82%D1%84%D0%B5%D1%8F%20-%20%D0%A0%D0%BE%D0%B7%D0%B4%D1%96%D0%BB%201%22%2C%22callback_data%22%3A%22chapter_5%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%93%8B%20%D0%97%D0%BC%D1%96%D1%81%D1%82%20%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8%22%2C%22callback_data%22%3A%22back_to_toc%22%7D%5D%2C%5B%7B%22text%22%3A%22%F0%9F%8F%A0%20%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8E%22%2C%22callback_data%22%3A%22main_menu%22%7D%5D%5D%7D&chat_id=5239759452&text=%2A%2AAiyin%20A80%2A%2A%20%E2%80%94%20%D1%86%D0%B5%20%D0%BF%D0%BE%D0%BF%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D0%B8%D0%B9%20%D0%B1%D1%8E%D0%B4%D0%B6%D0%B5%D1%82%D0%BD%D0%B8%D0%B9%20%D0%B3%D1%96%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D0%B8%D0%B9%20%D1%96%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D1%87.%0A%0A%D0%99%D0%BE%D0%B3%D0%BE%20%D0%BA%D0%BB%D1%8E%D1%87%D0%BE%D0%B2%D0%B0%20%D0%BE%D1%81%D0%BE%D0%B1%D0%BB%D0%B8%D0%B2%D1%96%D1%81%D1%82%D1%8C%20%E2%80%94%20%D0%BF%D0%BE%D1%94%D0%B4%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BB%D0%B0%D0%BC%D0%BF%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D1%87%D0%B0%20%D1%82%D0%B0%20%D0%BF%D0%BE%D1%82%D1%83%D0%B6%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D1%87%D0%B0%20%D0%BA%D0%BB%D0%B0%D1%81%D1%83%20D.%0A%0A%2A%2A%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%96%20%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B8%3A%2A%2A%0A%0A%2A%20%20%20%2A%2A%D0%A2%D0%B8%D0%BF%3A%2A%2A%20%D0%93%D1%96%D0%B1%D1%80%D0%B8%D0%B4%D0%BD%D0%B8%D0%B9%20%28%D0%BB%D0%B0%D0%BC%D0%BF%D0%B8%20%D0%B2%20%D0%BF%D1%80%D0%B5%D0%B0%D0%BC%D0%BF%D1%96%2C%20%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%20%D0%B2%20%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D1%87%D1%96%20%D0%BF%D0%BE%D1%82%D1%83%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%96%29.%0A%2A%20%20%20%2A%2A%D0%9B%D0%B0%D0%BC%D0%BF%D0%B8%3A%2A%2A%20%D0%97%D0%B0%D0%B7%D0%B2%D0%B8%D1%87%D0%B0%D0%B9%20%D0%B2%D0%B8%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D1%83%D1%8E%D1%82%D1%8C%D1%81%D1%8F%206N3%20%28%D0%B0%D0%B1%D0%BE%20%D1%97%D1%85%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8%29%2C%20%D1%8F%D0%BA%D1%96%20%D0%B4%D0%BE%D0%B4%D0%B0%D1%8E%D1%82%D1%8C%20%D0%B7%D0%B2%D1%83%D1%87%D0%B0%D0%BD%D0%BD%D1%8E%20%D1%85%D0%B0%D1%80%D0%B0%D0%BA%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D1%97%20%C2%AB%D1%82%D0%B5%D0%BF%D0%BB%D0%BE%D1%82%D0%B8%C2%BB%20%D1%82%D0%B0%20%D0%BC%27%D1%8F%D0%BA%D0%BE%D1%81%D1%82%D1%96.%20%D0%9B%D0%B0%D0%BC%D0%BF%D0%B8%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%B0%20%D0%B7%D0%B0%D0%BC%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D1%82%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%82%D1%8E%D0%BD%D1%96%D0%BD%D0%B3%D1%83%20%D0%B7%D0%B2%D1%83%D0%BA%D1%83.%0A%2A%20%20%20%2A%2A%D0%9F%D0%BE%D1%82%D1%83%D0%B6%D0%BD%D1%96%D1%81%D1%82%D1%8C%3A%2A%2A%20%D0%97%D0%B0%20%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20%D0%B2%D1%96%D0%B4%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%B0%D1%94%20%D0%B5%D1%84%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%20%D0%BC%D1%96%D0%BA%D1%80%D0%BE%D1%81%D1%85%D0%B5%D0%BC%D0%B0%20%D0%BA%D0%BB%D0%B0%D1%81%D1%83%20D%20%28%D0%BD%D0%B0%D0%B9%D1%87%D0%B0%D1%81%D1%82%D1%96%D1%88%D0%B5%20Texas%20Instruments%20TPA3255%29%2C%20%D1%89%D0%BE%20%D0%B7%D0%B0%D0%B1%D0%B5%D0%B7%D0%BF%D0%B5%D1%87%D1%83%D1%94%20%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D1%83%20%D0%BF%D0%BE%D1%82%D1%83%D0%B6%D0%BD%D1%96%D1%81%D1%82%D1%8C%20%28%D0%B4%D0%BE%20150%20%D0%92%D1%82%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20%D0%BF%D1%80%D0%B8%204%20%D0%9E%D0%BC%29.%0A%2A%20%20%20%2A%2A%D0%9F%D1%96%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%BD%D1%8F%3A%2A%2A%20%D0%9C%D0%B0%D1%94%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%96%20%D0%B2%D1%85%D0%BE%D0%B4%D0%B8%20RCA%20%D1%82%D0%B0%20%D0%B2%D0%B1%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20Bluetooth%205.0%20%D0%B4%D0%BB%D1%8F%20%D0%B1%D0%B5%D0%B7%D0%B4%D1%80%D0%BE%D1%82%D0%BE%D0%B2%D0%BE%D1%97%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D1%96%20%D0%BC%D1%83%D0%B7%D0%B8%D0%BA%D0%B8.%0A%2A%20%20%20%2A%2A%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%3A%2A%2A%20%D0%92%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D0%BD%D0%BE%D1%8E%20%D1%80%D0%B8%D1%81%D0%BE%D1%8E%20%D1%94%20%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D1%96%20%D1%81%D1%82%D1%80%D1%96%D0%BB%D0%BE%D1%87%D0%BD%D1%96%20%D1%96%D0%BD%D0%B4%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%D0%B8%20%D1%80%D1%96%D0%B2%D0%BD%D1%8F%20%D1%81%D0%B8%D0%B3%D0%BD%D0%B0%D0%BB%D1%83%20%28VU%20meters%29%20%D0%BD%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%BD%D1%96%D0%B9%20%D0%BF%D0%B0%D0%BD%D0%B5%D0%BB%D1%96%2C%20%D1%89%D0%BE%20%D0%BD%D0%B0%D0%B4%D0%B0%D1%8E%D1%82%D1%8C%20%D0%B9%D0%BE%D0%BC%D1%83%20%D0%B2%D1%96%D0%BD%D1%82%D0%B0%D0%B6%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B8%D0%B3%D0%BB%D1%8F%D0%B4%D1%83.%0A%0A%2A%2A%D0%94%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D1%96%D0%BD%3F%2A%2A%0A%0A%D0%A6%D0%B5%20%D1%87%D1%83%D0%B4%D0%BE%D0%B2%D0%B8%D0%B9%20%D0%B2%D0%B8%D0%B1%D1%96%D1%80%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D1%83%D0%B4%D1%96%D0%BE%D1%84%D1%96%D0%BB%D1%96%D0%B2-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2%2C%20%D1%8F%D0%BA%D1%96%20%D1%85%D0%BE%D1%87%D1%83%D1%82%D1%8C%20%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D1%82%D0%B8%20%D0%BF%D0%BE%D1%82%D1%83%D0%B6%D0%BD%D0%B8%D0%B9%20%D1%82%D0%B0%20%D0%BC%D1%83%D0%B7%D0%B8%D1%87%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%96%D0%B4%D1%81%D0%B8%D0%BB%D1%8E%D0%B2%D0%B0%D1%87%20%D0%B7%D0%B0%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D1%8E%20%D1%86%D1%96%D0%BD%D0%BE%D1%8E.%20%D0%92%D1%96%D0%BD%20%D0%B4%D0%BE%D0%B1%D1%80%D0%B5%20%D0%BF%D1%96%D0%B4%D1%85%D0%BE%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D1%81%D1%82%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D1%85%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20%D1%82%D0%B0%20%D0%BE%D0%B7%D0%B2%D1%83%D1%87%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BD%D0%B5%D0%B2%D0%B5%D0%BB%D0%B8%D0%BA%D0%B8%D1%85%20%D1%96%20%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%BD%D1%96%D1%85%20%D0%BA%D1%96%D0%BC%D0%BD%D0%B0%D1%82.%20A80%20%D0%BF%D1%80%D0%BE%D0%BF%D0%BE%D0%BD%D1%83%D1%94%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D1%96%D1%81%20%D0%BC%D1%96%D0%B6%20%C2%AB%D1%82%D0%B5%D0%BF%D0%BB%D0%B8%D0%BC%C2%BB%20%D0%BB%D0%B0%D0%BC%D0%BF%D0%BE%D0%B2%D0%B8%D0%BC%20%D0%B7%D0%B2%D1%83%D0%BA%D0%BE%D0%BC%20%D1%96%20%D0%B2%D0%B8%D1%81%D0%BE%D0%BA%D0%BE%D1%8E%20%D0%B5%D1%84%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%96%D1%81%D1%82%D1%8E%20%D0%BA%D0%BB%D0%B0%D1%81%D1%83%20D.',
+      path: '/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
+      httpModule: [Object],
+      agentClass: [Function: Agent],
+      agentOptions: [Object],
+      agent: [Agent],
+      _started: true,
+      href: 'https://api.telegram.org/bot7875248042:AAHuz_HjElePh68tmzQE2LG1P6UGc1zlsA8/sendMessage',
+      req: [ClientRequest],
+      ntick: true,
+      response: [Circular *1],
+      originalHost: 'api.telegram.org',
+      originalHostHeaderName: 'host',
+      responseContent: [Circular *1],
+      _destdata: true,
+      _ended: true,
+      _callbackCalled: true,
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false
+    },
+    toJSON: [Function: responseToJSON],
+    caseless: Caseless { dict: [Object] },
+    body: {
+      ok: false,
+      error_code: 400,
+      description: "Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 1564"
+    },
+    [Symbol(shapeMode)]: true,
+    [Symbol(kCapture)]: false,
+    [Symbol(kHeaders)]: {
+      server: 'nginx/1.18.0',
+      date: 'Sun, 30 Nov 2025 15:18:26 GMT',
+      'content-type': 'application/json',
+      'content-length': '138',
+      connection: 'keep-alive',
+      'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+      'access-control-allow-origin': '*',
+      'access-control-expose-headers': 'Content-Length,Content-Type,Date,Server,Connection'
+    },
+    [Symbol(kHeadersCount)]: 16,
+    [Symbol(kTrailers)]: null,
+    [Symbol(kTrailersCount)]: 0
+  }
+}

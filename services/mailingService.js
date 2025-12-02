@@ -436,10 +436,10 @@ class MailingService {
       // Format message with mailing iteration ID
       const message = this.formatVersesForMailing(verses, mailingIteration ? mailingIteration.id : null);
 
-      // Send to dev user
+      // Send to dev user (plain text to avoid Markdown parsing errors)
       const options = {
-        parse_mode: 'Markdown',
         disable_web_page_preview: true
+        // No parse_mode to avoid Markdown parsing errors
       };
 
       // Add inline keyboard if buttons are provided
@@ -450,6 +450,7 @@ class MailingService {
       }
 
       try {
+        // Try sending with plain text first (no Markdown)
         await this.bot.sendMessage(devUserId, message.text, options);
         console.log(`✅ Sent startup message to dev user ${devUserId}`);
         
@@ -461,6 +462,9 @@ class MailingService {
           });
         }
       } catch (sendError) {
+        console.error(`❌ Error sending to dev user ${devUserId}:`, sendError.message);
+        console.error('Error details:', sendError);
+        
         // Update mailing iteration with failure
         if (mailingIteration) {
           await mailingIteration.update({

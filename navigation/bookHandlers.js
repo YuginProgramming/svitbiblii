@@ -92,7 +92,7 @@ export async function handleMainMenu(bot, chatId, messageId) {
     await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", {
       reply_markup: {
         keyboard: [
-          [{ text: "Про книгу" }, { text: "Зміст книги" }, { text: "Євангеліє від Матфея - Розділ 1" }],
+          [{ text: "Зміст книги" }, { text: "Євангеліє від Матфея - Розділ 1" }],
           [{ text: "🏠 Головне меню" }]
         ],
         resize_keyboard: true,
