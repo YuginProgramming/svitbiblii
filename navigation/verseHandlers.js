@@ -10,7 +10,6 @@ import {
   createActionButtons,
   createBarclayCommentsButton
 } from './buttonCreators.js';
-import userLocationService from '../services/userLocationService.js';
 
 /**
  * Handle verse selection and display
@@ -28,6 +27,9 @@ export async function handleVerseSelection(bot, chatId, chapterIndex, verseNumbe
     
     const formattedMessage = `*Вірш ${verseNumber}*\n\n${verseText}`;
     
+    // Barclay comments button (first, right under text)
+    const barclayButton = createBarclayCommentsButton(chapterIndex);
+    
     // Navigation buttons
     const navButtons = createChapterNavButtons(chapterIndex, totalChapters);
     
@@ -41,7 +43,7 @@ export async function handleVerseSelection(bot, chatId, chapterIndex, verseNumbe
     await bot.sendMessage(chatId, formattedMessage, {
       parse_mode: 'Markdown',
       reply_markup: {
-        inline_keyboard: [navButtons, actionButtons]
+        inline_keyboard: [barclayButton, navButtons, actionButtons]
       }
     });
   } catch (error) {
@@ -60,13 +62,13 @@ export async function handleNextVerses(bot, chatId, chapterIndex, currentVerse) 
   const verseStart = parseInt(currentVerse, 10) + 3;
   
   try {
-    // Update user location
-    userLocationService.updateLocation(chatId, chapterIndex);
-
     const preview = await getChapterPreviewWithVerses(chapterIndex, verseStart);
     const totalChapters = await getTotalChapters();
     
     const formattedMessage = `*${preview.title}*\n\n${preview.content}`;
+    
+    // Barclay comments button (first, right under text)
+    const barclayButton = createBarclayCommentsButton(chapterIndex);
     
     // Navigation buttons
     const navButtons = createChapterNavButtons(chapterIndex, totalChapters);
@@ -77,16 +79,13 @@ export async function handleNextVerses(bot, chatId, chapterIndex, currentVerse) 
       actionButtons.push({ text: "📖 Читати повністю", callback_data: `full_${chapterIndex}` });
     }
     
-    // Barclay comments button
-    const barclayButton = createBarclayCommentsButton(chapterIndex);
-    
     // Verse navigation buttons
     const verseNavButtons = createVerseNavButtons(chapterIndex, verseStart, preview.hasMore);
 
     await bot.sendMessage(chatId, formattedMessage, {
       parse_mode: 'Markdown',
       reply_markup: {
-        inline_keyboard: [navButtons, actionButtons, barclayButton, verseNavButtons]
+        inline_keyboard: [barclayButton, navButtons, actionButtons, verseNavButtons]
       }
     });
   } catch (error) {
@@ -105,13 +104,13 @@ export async function handlePrevVerses(bot, chatId, chapterIndex, currentVerse) 
   const verseStart = Math.max(0, parseInt(currentVerse, 10) - 3);
   
   try {
-    // Update user location
-    userLocationService.updateLocation(chatId, chapterIndex);
-
     const preview = await getChapterPreviewWithVerses(chapterIndex, verseStart);
     const totalChapters = await getTotalChapters();
     
     const formattedMessage = `*${preview.title}*\n\n${preview.content}`;
+    
+    // Barclay comments button (first, right under text)
+    const barclayButton = createBarclayCommentsButton(chapterIndex);
     
     // Navigation buttons
     const navButtons = createChapterNavButtons(chapterIndex, totalChapters);
@@ -122,16 +121,13 @@ export async function handlePrevVerses(bot, chatId, chapterIndex, currentVerse) 
       actionButtons.push({ text: "📖 Читати повністю", callback_data: `full_${chapterIndex}` });
     }
     
-    // Barclay comments button
-    const barclayButton = createBarclayCommentsButton(chapterIndex);
-    
     // Verse navigation buttons
     const verseNavButtons = createVerseNavButtons(chapterIndex, verseStart, preview.hasMore);
 
     await bot.sendMessage(chatId, formattedMessage, {
       parse_mode: 'Markdown',
       reply_markup: {
-        inline_keyboard: [navButtons, actionButtons, barclayButton, verseNavButtons]
+        inline_keyboard: [barclayButton, navButtons, actionButtons, verseNavButtons]
       }
     });
   } catch (error) {

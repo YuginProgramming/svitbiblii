@@ -215,13 +215,39 @@ class AIService {
 
       return text;
     } catch (error) {
-      console.error('❌ Error generating AI response:', error);
+      // Enhanced error logging for debugging API issues
+      console.error('❌ Error generating AI response:');
+      console.error(`   Error type: ${error.constructor.name}`);
+      console.error(`   Error message: ${error.message || 'No message'}`);
+      console.error(`   Error status: ${error.status || error.statusCode || 'N/A'}`);
+      if (error.statusText) {
+        console.error(`   Status text: ${error.statusText}`);
+      }
+      if (error.response) {
+        console.error(`   Response data:`, JSON.stringify(error.response, null, 2));
+      }
+      if (error.stack) {
+        console.error(`   Stack trace:`, error.stack);
+      }
       
-      if (error.message.includes('API_KEY_INVALID') || error.message.includes('401')) {
+      // Check error message and status code
+      const errorMessage = error.message || '';
+      const errorStatus = error.status || error.statusCode || '';
+      
+      if (errorMessage.includes('API_KEY_INVALID') || errorMessage.includes('401') || errorStatus === 401) {
+        console.error('   ⚠️ API Key invalid (401)');
         throw new Error('AI service configuration error. Please contact support.');
-      } else if (error.message.includes('429')) {
+      } else if (errorMessage.includes('403') || errorMessage.includes('leaked') || errorMessage.includes('Forbidden') || errorStatus === 403) {
+        console.error('   ⚠️ API Key issue detected - 403 Forbidden or leaked key');
+        throw new Error('AI service configuration error. Please contact support.');
+      } else if (errorMessage.includes('429') || errorStatus === 429) {
+        console.error('   ⚠️ Rate limit exceeded (429)');
         throw new Error('AI service is temporarily unavailable due to rate limits. Please try again later.');
+      } else if (errorMessage.includes('503') || errorMessage.includes('overloaded') || errorStatus === 503) {
+        console.error('   ⚠️ Service overloaded (503)');
+        throw new Error('AI service is temporarily overloaded. Please try again in a few minutes.');
       } else {
+        console.error('   ⚠️ Unknown error - generic error message will be shown');
         throw new Error('Помилка при обробці запиту. Спробуйте ще раз.');
       }
     }

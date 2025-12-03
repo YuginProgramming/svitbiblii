@@ -5,6 +5,52 @@ import { setupNavigationHandlers } from "./navigation/index.js";
 import { initializeTelegramUserMiddleware } from "./database/middleware/telegramUserMiddleware.js";
 import MailingService from "./services/mailingService.js";
 import SchedulerService from "./services/schedulerService.js";
+import config from "./config.js";
+import fs from 'fs';
+import path from 'path';
+
+// Setup file logging
+const logFile = config.LOG_FILE || './logs/bot.log';
+const logDir = path.dirname(logFile);
+
+// Ensure log directory exists
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
+
+// Helper function to write to log file
+const writeToLog = (level, ...args) => {
+  const timestamp = new Date().toISOString();
+  const message = args.map(arg => 
+    typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+  ).join(' ');
+  const logEntry = `[${timestamp}] [${level}] ${message}\n`;
+  
+  try {
+    fs.appendFileSync(logFile, logEntry, 'utf8');
+  } catch (error) {
+    // Fallback to console if file write fails
+    console.error('Failed to write to log file:', error.message);
+  }
+};
+
+// Override console.error to also write to file
+const originalConsoleError = console.error;
+console.error = (...args) => {
+  originalConsoleError(...args);
+  writeToLog('ERROR', ...args);
+};
+
+// Override console.log for important messages
+const originalConsoleLog = console.log;
+console.log = (...args) => {
+  originalConsoleLog(...args);
+  // Only log important messages (those with emojis or error indicators)
+  const message = args.join(' ');
+  if (message.includes('❌') || message.includes('⚠️') || message.includes('🚀') || message.includes('✅')) {
+    writeToLog('INFO', ...args);
+  }
+};
 
 // Global error handlers to prevent bot crashes
 process.on('unhandledRejection', (reason, promise) => {

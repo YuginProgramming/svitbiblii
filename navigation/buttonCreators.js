@@ -121,6 +121,15 @@ export function createVerseNavButtons(chapterIndex, verseStart, hasMore) {
 }
 
 /**
+ * Create Barclay comments button for chapter
+ * @param {number} chapterIndex - Current chapter index
+ * @returns {Array} Array with Barclay comments button
+ */
+export function createBarclayCommentsButton(chapterIndex) {
+  return [{ text: "📖 Коментарі Вільяма Барклі", callback_data: `barclay_chapter_${chapterIndex}` }];
+}
+
+/**
  * Create action buttons for chapter actions
  * @param {number} chapterIndex - Current chapter index
  * @param {boolean} hasMore - Whether there are more verses
@@ -138,17 +147,6 @@ export function createActionButtons(chapterIndex, hasMore, hasReferences) {
   }
   
   return actionButtons;
-}
-
-/**
- * Create Barclay comments button
- * @param {number} chapterIndex - Current chapter index
- * @returns {Array} Array with Barclay comments button row
- */
-export function createBarclayCommentsButton(chapterIndex) {
-  return [
-    { text: "📖 Коментарі Вільяма Барклі", callback_data: `barclay_chapter_${chapterIndex}` }
-  ];
 }
 
 /**

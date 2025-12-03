@@ -1,11 +1,4 @@
 import { getFirstChapterText, getChapterText, getChapterPreview, getTableOfContents } from "./epub-parser/index.js";
-import AIService from "./services/aiService.js";
-
-// Track users in AI chat mode
-const usersInAIMode = new Set();
-
-// Initialize AI service
-const aiService = new AIService();
 
 const mainMenu = {
   reply_markup: {
@@ -53,141 +46,11 @@ function splitMessage(message, maxLength = 4000) {
   return parts;
 }
 
-/**
- * Exit AI chat mode for a user
- * @param {number} chatId - Chat ID
- */
-function exitAIMode(chatId) {
-  usersInAIMode.delete(chatId);
-  aiService.clearChatHistory(chatId);
-}
-
 function setupMainMenuHandlers(bot) {
   bot.on("message", async (msg) => {
     const chatId = msg.chat.id;
-    const text = msg.text;
 
-    // Skip if message is from a bot or doesn't have text
-    if (!text || msg.from?.is_bot) {
-      return;
-    }
-
-    // Check if user is in AI chat mode
-    if (usersInAIMode.has(chatId)) {
-      // If user sends a command or menu button, exit AI mode
-      if (text.startsWith('/') || text === "🏠 Головне меню" || text === "Вибрати книгу") {
-        exitAIMode(chatId);
-        // Let other handlers process the command
-        return;
-      }
-
-      // Handle AI chat messages
-      try {
-        const userId = msg.from?.id;
-        
-        // Skip if no user ID (shouldn't happen, but safety check)
-        if (!userId) {
-          await bot.sendMessage(chatId, '❌ Помилка: не вдалося ідентифікувати користувача.');
-          return;
-        }
-        
-        // Import limits service
-        const aiLimitsService = (await import('./services/aiLimitsService.js')).default;
-        
-        // Validate request content (text only, max 3000 characters)
-        const contentValidation = aiLimitsService.validateRequest(text);
-        if (!contentValidation.valid) {
-          await bot.sendMessage(chatId, `❌ ${contentValidation.reason}`, {
-            reply_markup: {
-              inline_keyboard: [
-                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-              ]
-            }
-          });
-          return;
-        }
-        
-        // Check if user can make a request (daily limit)
-        const limitCheck = aiLimitsService.canMakeRequest(userId);
-        if (!limitCheck.allowed) {
-          await bot.sendMessage(chatId, `❌ ${limitCheck.reason}`, {
-            reply_markup: {
-              inline_keyboard: [
-                [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-              ]
-            }
-          });
-          return;
-        }
-        
-        // Show typing indicator
-        await bot.sendChatAction(chatId, 'typing');
-
-        // Generate AI response (already limited to 2000 chars)
-        const aiResponse = await aiService.generateResponse(chatId, text);
-        
-        // Record the request after successful generation (consumes user's daily limit)
-        aiLimitsService.recordRequest(userId);
-
-        // Split into chunks if needed (max 2000 chars per message)
-        const chunks = aiService.splitMessage(aiResponse, 2000);
-
-        // Send all chunks (as plain text to avoid Markdown parsing errors)
-        for (let i = 0; i < chunks.length; i++) {
-          const isLast = i === chunks.length - 1;
-          
-          try {
-            if (isLast) {
-              // Last chunk - send with menu buttons (plain text, no Markdown)
-              await bot.sendMessage(chatId, chunks[i], {
-                reply_markup: {
-                  inline_keyboard: [
-                    [{ text: "📖 Євангеліє від Матфея - Розділ 1", callback_data: "chapter_5" }],
-                    [{ text: "📋 Зміст книги", callback_data: "back_to_toc" }],
-                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-                  ]
-                }
-              });
-            } else {
-              // Intermediate chunks - send without buttons (plain text)
-              await bot.sendMessage(chatId, chunks[i]);
-            }
-          } catch (sendError) {
-            // Log error but don't crash - try to continue with next chunk
-            console.error(`❌ Error sending chunk ${i} to user ${chatId}:`, sendError.message);
-            // If it's the last chunk and it failed, at least try to send an error message
-            if (isLast) {
-              await bot.sendMessage(chatId, '❌ Помилка при відправці повідомлення. Спробуйте ще раз.', {
-                reply_markup: {
-                  inline_keyboard: [
-                    [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-                  ]
-                }
-              });
-            }
-          }
-          
-          // Small delay between chunks to avoid rate limiting
-          if (!isLast) {
-            await new Promise(resolve => setTimeout(resolve, 300));
-          }
-        }
-
-      } catch (error) {
-        console.error(`❌ Error in AI chat for user ${chatId}:`, error);
-        await bot.sendMessage(chatId, `❌ ${error.message || 'Помилка при обробці запиту. Спробуйте ще раз.'}`, {
-          reply_markup: {
-            inline_keyboard: [
-              [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
-            ]
-          }
-        });
-      }
-      return;
-    }
-
-    // Handle main menu buttons
-    if (text === "Вибрати книгу") {
+    if (msg.text === "Вибрати книгу") {
       await bot.sendMessage(chatId, "📚 Оберіть що читати:", {
         reply_markup: {
           inline_keyboard: [
@@ -196,35 +59,9 @@ function setupMainMenuHandlers(bot) {
           ]
         }
       });
-      return;
     }
 
-    if (text === "Спілкуватися з ШІ") {
-      // Enter AI chat mode
-      usersInAIMode.add(chatId);
-      
-      const userId = msg.from?.id;
-      const aiLimitsService = (await import('./services/aiLimitsService.js')).default;
-      const remaining = aiLimitsService.getRemainingRequests(userId);
-      
-      let limitMessage = '';
-      if (remaining === Infinity) {
-        limitMessage = '\n\n✨ Ви маєте необмежену кількість запитів.';
-      } else {
-        limitMessage = `\n\n📊 У вас залишилось ${remaining} запитів на сьогодні (максимум 3 на день).`;
-      }
-      
-      await bot.sendMessage(chatId, `🤖 *Спілкування з ШІ*\n\nНапишіть ваше питання, і я постараюся вам допомогти!${limitMessage}\n\n⚠️ Обмеження: максимум 3000 символів на запит.`, {
-        parse_mode: 'Markdown'
-      });
-      return;
-    }
-
-    if (text === "🏠 Головне меню") {
-      // Exit AI chat mode if user was in it
-      usersInAIMode.delete(chatId);
-      aiService.clearChatHistory(chatId);
-
+    if (msg.text === "🏠 Головне меню") {
       await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", mainMenu);
 
       await bot.sendMessage(chatId, "Щоб почати читати, натисни:", {
@@ -234,9 +71,9 @@ function setupMainMenuHandlers(bot) {
           ]
         }
       });
-      return;
     }
+
   });
 }
 
-export { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage, exitAIMode };
+export { mainMenu, setupMainMenuHandlers, formatTOC, splitMessage };
