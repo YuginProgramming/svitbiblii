@@ -625,10 +625,25 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
             ]
           } : undefined;
 
-          await bot.sendMessage(chatId, chunks[i], {
-            parse_mode: 'Markdown',
-            reply_markup: keyboard
-          });
+          // Escape markdown to prevent parsing errors
+          const escapedChunk = aiService.escapeMarkdown(chunks[i]);
+          
+          try {
+            await bot.sendMessage(chatId, escapedChunk, {
+              parse_mode: 'Markdown',
+              reply_markup: keyboard
+            });
+          } catch (parseError) {
+            // If markdown parsing still fails, send as plain text
+            if (parseError.message?.includes('parse entities') || parseError.message?.includes('Can\'t find end')) {
+              console.log(`⚠️ Markdown parse error for chapter ${chapterIndex}, sending as plain text for chunk ${i + 1}`);
+              await bot.sendMessage(chatId, chunks[i], {
+                reply_markup: keyboard
+              });
+            } else {
+              throw parseError; // Re-throw if it's a different error
+            }
+          }
         }
       } catch (error) {
         // Enhanced error logging for debugging
@@ -775,10 +790,25 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
             ]
           } : undefined;
 
-          await bot.sendMessage(chatId, chunks[i], {
-            parse_mode: 'Markdown',
-            reply_markup: keyboard
-          });
+          // Escape markdown to prevent parsing errors
+          const escapedChunk = aiService.escapeMarkdown(chunks[i]);
+          
+          try {
+            await bot.sendMessage(chatId, escapedChunk, {
+              parse_mode: 'Markdown',
+              reply_markup: keyboard
+            });
+          } catch (parseError) {
+            // If markdown parsing still fails, send as plain text
+            if (parseError.message?.includes('parse entities') || parseError.message?.includes('Can\'t find end')) {
+              console.log(`⚠️ Markdown parse error for mailing iteration ${mailingIterationId}, sending as plain text for chunk ${i + 1}`);
+              await bot.sendMessage(chatId, chunks[i], {
+                reply_markup: keyboard
+              });
+            } else {
+              throw parseError; // Re-throw if it's a different error
+            }
+          }
         }
       } catch (error) {
         // Enhanced error logging for debugging
@@ -807,7 +837,10 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
         const errorMsg = error.message || '';
         const errorStatus = error.status || error.statusCode || '';
         
-        if (errorMsg.includes('403') || errorMsg.includes('leaked') || errorMsg.includes('API key') || errorMsg.includes('Forbidden') || errorStatus === 403) {
+        if (errorMsg.includes('parse entities') || errorMsg.includes('Can\'t find end')) {
+          console.error(`   ⚠️ Telegram markdown parsing error detected`);
+          errorMessage = "❌ Помилка форматування повідомлення. Спробуйте ще раз.";
+        } else if (errorMsg.includes('403') || errorMsg.includes('leaked') || errorMsg.includes('API key') || errorMsg.includes('Forbidden') || errorStatus === 403) {
           console.error(`   ⚠️ API Key issue detected (403/leaked)`);
           errorMessage = "❌ Помилка конфігурації AI сервісу. Будь ласка, зверніться до підтримки.";
         } else if (errorMsg.includes('429') || errorStatus === 429) {
