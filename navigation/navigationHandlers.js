@@ -36,6 +36,15 @@ import AIService from '../services/aiService.js';
 export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
   // Initialize AI service for Barclay comments
   const aiService = new AIService();
+  
+  // Log AI service status
+  if (!aiService.isInitialized()) {
+    console.error('⚠️ WARNING: AI Service is not initialized!');
+    console.error('   Barclay comments will not work until GEMINI_API_KEY is set correctly in .env');
+    console.error('   After updating .env, you MUST restart the bot for changes to take effect');
+  } else {
+    console.log('✅ AI Service ready for Barclay comments');
+  }
 
   bot.on("callback_query", async (query) => {
     try {
@@ -561,6 +570,25 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
         const versesToUse = parsed.verses.slice(0, 3);
         let versesText = versesToUse.join('\n');
 
+        // Check if AI service is initialized before proceeding
+        if (!aiService.isInitialized()) {
+          console.error(`❌ User ${chatId} requested Barclay comments but AI service is not initialized`);
+          await bot.sendMessage(chatId, 
+            "❌ *Сервіс коментарів тимчасово недоступний*\n\n" +
+            "AI сервіс не ініціалізовано. Будь ласка, зверніться до адміністратора.\n\n" +
+            "Перевірте, чи правильно налаштовано GEMINI_API_KEY в .env файлі та перезапустіть бота.",
+            { 
+              parse_mode: 'Markdown',
+              reply_markup: {
+                inline_keyboard: [
+                  [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                ]
+              }
+            }
+          );
+          return;
+        }
+
         // Create prompt for Gemini AI
         const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${bookName}, Розділ ${chapterNumber}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
 
@@ -572,6 +600,8 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           "Це може зайняти хвилину... ⏳",
           { parse_mode: 'Markdown' }
         );
+
+        console.log(`📖 Generating Barclay comments for user ${chatId}, chapter ${chapterIndex}`);
 
         // Generate AI response
         const aiResponse = await aiService.generateResponse(chatId, prompt);
@@ -690,6 +720,25 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           versesText += `${mailingIteration.verseNumbers[i]}. ${mailingIteration.verseTexts[i]}\n`;
         }
 
+        // Check if AI service is initialized before proceeding
+        if (!aiService.isInitialized()) {
+          console.error(`❌ User ${chatId} requested Barclay comments from mailing but AI service is not initialized`);
+          await bot.sendMessage(chatId, 
+            "❌ *Сервіс коментарів тимчасово недоступний*\n\n" +
+            "AI сервіс не ініціалізовано. Будь ласка, зверніться до адміністратора.\n\n" +
+            "Перевірте, чи правильно налаштовано GEMINI_API_KEY в .env файлі та перезапустіть бота.",
+            { 
+              parse_mode: 'Markdown',
+              reply_markup: {
+                inline_keyboard: [
+                  [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                ]
+              }
+            }
+          );
+          return;
+        }
+
         // Create prompt for Gemini AI
         const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${mailingIteration.bookName}, Розділ ${mailingIteration.chapterNumber}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
 
@@ -701,6 +750,8 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           "Це може зайняти хвилину... ⏳",
           { parse_mode: 'Markdown' }
         );
+
+        console.log(`📖 Generating Barclay comments for user ${chatId}, mailing iteration ${mailingIterationId}`);
 
         // Generate AI response
         const aiResponse = await aiService.generateResponse(chatId, prompt);

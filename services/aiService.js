@@ -20,15 +20,40 @@ class AIService {
     try {
       if (!config.GEMINI_API_KEY || config.GEMINI_API_KEY === 'your_gemini_api_key_here') {
         console.error('❌ GEMINI_API_KEY is not set in .env file!');
+        console.error('   Please set GEMINI_API_KEY in your .env file');
+        console.error('   Current value:', config.GEMINI_API_KEY ? `${config.GEMINI_API_KEY.substring(0, 10)}...` : 'undefined');
+        this.model = null;
         return;
       }
 
+      console.log('🔧 Initializing AI Service...');
+      console.log(`   API Key found: ${config.GEMINI_API_KEY.substring(0, 10)}...${config.GEMINI_API_KEY.substring(config.GEMINI_API_KEY.length - 4)}`);
+      
       const genAI = new GoogleGenerativeAI(config.GEMINI_API_KEY);
       this.model = genAI.getGenerativeModel({ model: 'gemini-pro-latest' });
       console.log('✅ AI Service initialized successfully');
     } catch (error) {
       console.error('❌ Error initializing AI Service:', error);
+      console.error('   Error message:', error.message);
+      console.error('   Error stack:', error.stack);
+      this.model = null;
     }
+  }
+  
+  /**
+   * Reinitialize AI service (useful after changing API key)
+   */
+  reinitialize() {
+    console.log('🔄 Reinitializing AI Service...');
+    this.model = null;
+    this.initializeAI();
+  }
+  
+  /**
+   * Check if AI service is properly initialized
+   */
+  isInitialized() {
+    return this.model !== null;
   }
 
   /**
@@ -156,7 +181,11 @@ class AIService {
    */
   async generateResponse(userId, userMessage) {
     if (!this.model) {
-      throw new Error('AI service is not initialized. Please check GEMINI_API_KEY in .env file.');
+      console.error('❌ AI service is not initialized!');
+      console.error('   GEMINI_API_KEY status:', config.GEMINI_API_KEY ? 
+        `Found (${config.GEMINI_API_KEY.substring(0, 10)}...)` : 'NOT SET');
+      console.error('   Please check your .env file and restart the bot after updating GEMINI_API_KEY');
+      throw new Error('AI service is not initialized. Please check GEMINI_API_KEY in .env file and restart the bot.');
     }
 
     try {
