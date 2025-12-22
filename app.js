@@ -179,7 +179,11 @@ bot.onText(/\/toc/, async (msg) => {
     let currentRow = [];
     
     toc.forEach((book, index) => {
-      const buttonText = book.title;
+      // Transform titles to use numbers instead of ordinal words
+      const buttonText = book.title
+        .replace(/ПЕРШЕ/g, '1')
+        .replace(/ДРУГЕ/g, '2')
+        .replace(/ТРЕТЄ/g, '3');
       const callbackData = `book_${index}`;
       
       currentRow.push({ text: buttonText, callback_data: callbackData });

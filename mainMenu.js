@@ -54,8 +54,8 @@ function setupMainMenuHandlers(bot) {
       await bot.sendMessage(chatId, "📚 Оберіть що читати:", {
         reply_markup: {
           inline_keyboard: [
-            [{ text: "📖 Читати Словник", callback_data: "open_slovnyk" }],
-            [{ text: "📖 Читати Новий Заповіт", callback_data: "open_bible" }]
+            [{ text: "📖 Читати Новий Заповіт", callback_data: "open_bible" }],
+            [{ text: "📖 Читати Словник", callback_data: "open_slovnyk" }]
           ]
         }
       });

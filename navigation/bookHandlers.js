@@ -8,6 +8,18 @@ import { createChapterButtons } from './buttonCreators.js';
 import { getTableOfContents } from '../epub-parser/index.js';
 
 /**
+ * Transform book title to use numbers instead of ordinal words
+ * @param {string} title - Original book title
+ * @returns {string} Transformed title
+ */
+function transformBookTitle(title) {
+  return title
+    .replace(/ПЕРШЕ/g, '1')
+    .replace(/ДРУГЕ/g, '2')
+    .replace(/ТРЕТЄ/g, '3');
+}
+
+/**
  * Handle book selection from table of contents
  * @param {Object} bot - Telegram bot instance
  * @param {number} chatId - Chat ID
@@ -52,7 +64,7 @@ export async function handleTableOfContents(bot, chatId, messageId) {
     let currentRow = [];
     
     toc.forEach((book, index) => {
-      const buttonText = book.title;
+      const buttonText = transformBookTitle(book.title);
       const callbackData = `book_${index}`;
       
       currentRow.push({ text: buttonText, callback_data: callbackData });
@@ -88,17 +100,8 @@ export async function handleTableOfContents(bot, chatId, messageId) {
  */
 export async function handleMainMenu(bot, chatId, messageId) {
   try {
-    // Show main menu
-    await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:", {
-      reply_markup: {
-        keyboard: [
-          [{ text: "Про книгу" }, { text: "Зміст книги" }, { text: "Євангеліє від Матфея - Розділ 1" }],
-          [{ text: "🏠 Головне меню" }]
-        ],
-        resize_keyboard: true,
-        one_time_keyboard: false
-      }
-    });
+    // Show main menu without custom keyboard buttons
+    await bot.sendMessage(chatId, "👋 Вітаю! Оберіть опцію нижче:");
 
     await bot.sendMessage(chatId, "Щоб почати читати, натисни:", {
       reply_markup: {
