@@ -5,6 +5,9 @@
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import config from '../config.js';
+import userJourneyService from '../database/services/userJourneyService.js';
+import AIResponse from '../database/models/AIResponse.js';
+import { buildBarclayPrompt } from '../utils/promptBuilder.js';
 
 class AIService {
   constructor() {
@@ -291,6 +294,171 @@ class AIService {
   async generateResponseChunks(userId, userMessage) {
     const response = await this.generateResponse(userId, userMessage);
     return this.splitMessage(response, 2000);
+  }
+
+  /**
+   * Generate Barclay comments response from database event
+   * Reads event data from database, constructs prompt, calls AI, stores response
+   * @param {number} eventId - UserJourneyEvent ID
+   * @returns {Promise<string>} AI response text
+   */
+  async generateBarclayResponse(eventId) {
+    if (!this.model) {
+      console.error('❌ AI service is not initialized!');
+      throw new Error('AI service is not initialized. Please check GEMINI_API_KEY in .env file and restart the bot.');
+    }
+
+    const startTime = Date.now();
+    let aiResponseRecord = null;
+
+    try {
+      // Get event from database
+      const event = await userJourneyService.getEventForAI(eventId);
+      
+      if (!event) {
+        throw new Error(`Event ${eventId} not found`);
+      }
+
+      // Extract metadata
+      const metadata = event.metadata;
+      if (!metadata || metadata.aiFeature !== 'barclay_comments') {
+        throw new Error(`Event ${eventId} is not a Barclay comments request`);
+      }
+
+      // Build prompt from database data
+      const prompt = buildBarclayPrompt(metadata);
+
+      // Update event metadata with prompt and status
+      await userJourneyService.updateEventMetadata(eventId, prompt, 'processing');
+
+      // Create AIResponse record with pending status
+      aiResponseRecord = await AIResponse.create({
+        eventId: eventId,
+        promptUsed: prompt,
+        status: 'pending',
+        aiModel: 'gemini-pro-latest'
+      });
+
+      console.log(`📝 Created AIResponse record ID: ${aiResponseRecord.id} for event ${eventId}`);
+
+      // Generate response with retry logic
+      let result = null;
+      let text = null;
+      const maxRetries = 3;
+      let retryCount = 0;
+
+      while (retryCount < maxRetries) {
+        try {
+          // Use fresh chat (no history for Barclay comments)
+          const chat = this.model.startChat({
+            history: []
+          });
+
+          // Add instruction to keep responses concise
+          const systemPrompt = "Будь ласка, давай короткі та лаконічні відповіді. Обмеж свою відповідь до половини сторінки A4 (приблизно 30 рядків тексту).";
+          const enhancedMessage = `${systemPrompt}\n\n${prompt}`;
+
+          result = await chat.sendMessage(enhancedMessage);
+          const response = await result.response;
+          text = response.text();
+          break; // Success, exit retry loop
+        } catch (error) {
+          retryCount++;
+          if (error.message?.includes('503') || error.message?.includes('overloaded')) {
+            if (retryCount < maxRetries) {
+              const waitTime = retryCount * 2; // 2, 4, 6 seconds
+              console.log(`⚠️  AI service overloaded. Retrying in ${waitTime} seconds... (attempt ${retryCount}/${maxRetries})`);
+              await new Promise(resolve => setTimeout(resolve, waitTime * 1000));
+            } else {
+              throw error; // Re-throw if all retries failed
+            }
+          } else {
+            throw error; // Re-throw if it's not a 503 error
+          }
+        }
+      }
+
+      // Limit response length
+      text = this.limitResponseLength(text);
+
+      // Calculate processing time
+      const processingTime = Date.now() - startTime;
+
+      // Update AIResponse record with success
+      await aiResponseRecord.update({
+        responseText: text,
+        status: 'success',
+        processingTime: processingTime
+      });
+
+      // Link AIResponse to event
+      await userJourneyService.linkAIResponse(eventId, aiResponseRecord.id);
+
+      // Update event metadata with success status
+      await userJourneyService.updateEventMetadata(eventId, prompt, 'success');
+
+      console.log(`✅ Generated Barclay response for event ${eventId} (${processingTime}ms)`);
+      return text;
+
+    } catch (error) {
+      // Calculate processing time even on error
+      const processingTime = Date.now() - startTime;
+
+      // Update AIResponse record with error if it was created
+      if (aiResponseRecord) {
+        try {
+          await aiResponseRecord.update({
+            status: 'error',
+            errorMessage: error.message || 'Unknown error',
+            processingTime: processingTime
+          });
+        } catch (updateError) {
+          console.error(`❌ Error updating AIResponse record ${aiResponseRecord.id}:`, updateError);
+        }
+      } else {
+        // Create error record if we didn't get to create one before
+        try {
+          aiResponseRecord = await AIResponse.create({
+            eventId: eventId,
+            status: 'error',
+            errorMessage: error.message || 'Unknown error',
+            processingTime: processingTime
+          });
+          await userJourneyService.linkAIResponse(eventId, aiResponseRecord.id);
+        } catch (createError) {
+          console.error(`❌ Error creating error AIResponse record:`, createError);
+        }
+      }
+
+      // Update event metadata with error status
+      try {
+        await userJourneyService.updateEventMetadata(eventId, null, 'error');
+      } catch (updateError) {
+        console.error(`❌ Error updating event metadata:`, updateError);
+      }
+
+      // Enhanced error logging
+      console.error(`❌ Error generating Barclay response for event ${eventId}:`);
+      console.error(`   Error type: ${error.constructor.name}`);
+      console.error(`   Error message: ${error.message || 'No message'}`);
+      console.error(`   Error status: ${error.status || error.statusCode || 'N/A'}`);
+
+      // Re-throw with appropriate error message
+      const errorMessage = error.message || '';
+      const errorStatus = error.status || error.statusCode || '';
+      
+      if (errorMessage.includes('API_KEY_INVALID') || errorMessage.includes('401') || errorStatus === 401) {
+        throw new Error('AI service configuration error. Please contact support.');
+      } else if (errorMessage.includes('403') || errorMessage.includes('leaked') || errorMessage.includes('Forbidden') || errorStatus === 403) {
+        throw new Error('AI service configuration error. Please contact support.');
+      } else if (errorMessage.includes('429') || errorStatus === 429) {
+        throw new Error('AI service is temporarily unavailable due to rate limits. Please try again later.');
+      } else if (errorMessage.includes('503') || errorMessage.includes('overloaded') || errorStatus === 503) {
+        throw new Error('AI service is temporarily overloaded. Please try again in a few minutes.');
+      } else {
+        throw new Error('Помилка при обробці запиту. Спробуйте ще раз.');
+      }
+    }
   }
 }
 

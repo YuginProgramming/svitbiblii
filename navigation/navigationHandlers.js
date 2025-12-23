@@ -26,6 +26,7 @@ import { getChapterPreview } from '../epub-parser/index.js';
 import { parseChapterContent } from '../epub-parser/chapterExtractor.js';
 import MailingIteration from '../database/models/MailingIteration.js';
 import AIService from '../services/aiService.js';
+import userJourneyService from '../database/services/userJourneyService.js';
 
 /**
  * Setup all navigation handlers for the bot
@@ -568,7 +569,22 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
 
         // Get first 3 verses for the prompt (same as preview)
         const versesToUse = parsed.verses.slice(0, 3);
-        let versesText = versesToUse.join('\n');
+        
+        // Extract verse numbers and texts from verse strings
+        // Verses are formatted as "1 текст вірша", "2 текст вірша", etc.
+        const verseNumbers = [];
+        const verseTexts = [];
+        for (const verse of versesToUse) {
+          const match = verse.match(/^(\d+)\s+(.+)$/);
+          if (match) {
+            verseNumbers.push(parseInt(match[1], 10));
+            verseTexts.push(match[2]);
+          } else {
+            // Fallback: if format doesn't match, use index + 1 as verse number
+            verseNumbers.push(verseNumbers.length + 1);
+            verseTexts.push(verse);
+          }
+        }
 
         // Check if AI service is initialized before proceeding
         if (!aiService.isInitialized()) {
@@ -589,8 +605,34 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           return;
         }
 
-        // Create prompt for Gemini AI
-        const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${bookName}, Розділ ${chapterNumber}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
+        // Log event to database with all context data
+        let event;
+        try {
+          event = await userJourneyService.logBarclayRequest(chatId, {
+            source: 'chapter',
+            bookName: bookName,
+            chapterIndex: chapterIndex,
+            chapterNumber: chapterNumber,
+            verseNumbers: verseNumbers,
+            verseTexts: verseTexts,
+            mailingIterationId: null
+          });
+        } catch (logError) {
+          console.error(`❌ Error logging Barclay request for user ${chatId}:`, logError);
+          await bot.sendMessage(chatId, 
+            "❌ *Помилка при обробці запиту*\n\n" +
+            "Не вдалося зафіксувати запит у системі. Будь ласка, спробуйте ще раз.",
+            { 
+              parse_mode: 'Markdown',
+              reply_markup: {
+                inline_keyboard: [
+                  [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                ]
+              }
+            }
+          );
+          return;
+        }
 
         // Show informative loading message in Ukrainian
         loadingMessage = await bot.sendMessage(
@@ -601,10 +643,10 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           { parse_mode: 'Markdown' }
         );
 
-        console.log(`📖 Generating Barclay comments for user ${chatId}, chapter ${chapterIndex}`);
+        console.log(`📖 Generating Barclay comments for user ${chatId}, event ID: ${event.id}, chapter ${chapterIndex}`);
 
-        // Generate AI response
-        const aiResponse = await aiService.generateResponse(chatId, prompt);
+        // Generate AI response using event ID (reads from database)
+        const aiResponse = await aiService.generateBarclayResponse(event.id);
 
         // Delete loading message
         if (loadingMessage) {
@@ -729,12 +771,6 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           return;
         }
 
-        // Format verses text
-        let versesText = '';
-        for (let i = 0; i < mailingIteration.verseNumbers.length; i++) {
-          versesText += `${mailingIteration.verseNumbers[i]}. ${mailingIteration.verseTexts[i]}\n`;
-        }
-
         // Check if AI service is initialized before proceeding
         if (!aiService.isInitialized()) {
           console.error(`❌ User ${chatId} requested Barclay comments from mailing but AI service is not initialized`);
@@ -754,8 +790,34 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           return;
         }
 
-        // Create prompt for Gemini AI
-        const prompt = `На основі коментарів Вільяма Барклі з його серії "Daily Study Bible", надай короткий виклад його думок про ці вірші:\n\n${mailingIteration.bookName}, Розділ ${mailingIteration.chapterNumber}\n\n${versesText}\n\nВключи основні ідеї Барклі: історичний та культурний контекст, значення грецьких/єврейських слів, богословське тлумачення та практичні уроки для сучасного життя.`;
+        // Log event to database with all context data
+        let event;
+        try {
+          event = await userJourneyService.logBarclayRequest(chatId, {
+            source: 'mailing',
+            bookName: mailingIteration.bookName,
+            chapterIndex: mailingIteration.chapterIndex,
+            chapterNumber: mailingIteration.chapterNumber,
+            verseNumbers: mailingIteration.verseNumbers,
+            verseTexts: mailingIteration.verseTexts,
+            mailingIterationId: mailingIterationId
+          });
+        } catch (logError) {
+          console.error(`❌ Error logging Barclay request for user ${chatId}:`, logError);
+          await bot.sendMessage(chatId, 
+            "❌ *Помилка при обробці запиту*\n\n" +
+            "Не вдалося зафіксувати запит у системі. Будь ласка, спробуйте ще раз.",
+            { 
+              parse_mode: 'Markdown',
+              reply_markup: {
+                inline_keyboard: [
+                  [{ text: "🏠 Головне меню", callback_data: "main_menu" }]
+                ]
+              }
+            }
+          );
+          return;
+        }
 
         // Show informative loading message in Ukrainian
         loadingMessage = await bot.sendMessage(
@@ -766,10 +828,10 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
           { parse_mode: 'Markdown' }
         );
 
-        console.log(`📖 Generating Barclay comments for user ${chatId}, mailing iteration ${mailingIterationId}`);
+        console.log(`📖 Generating Barclay comments for user ${chatId}, event ID: ${event.id}, mailing iteration ${mailingIterationId}`);
 
-        // Generate AI response
-        const aiResponse = await aiService.generateResponse(chatId, prompt);
+        // Generate AI response using event ID (reads from database)
+        const aiResponse = await aiService.generateBarclayResponse(event.id);
 
         // Delete loading message
         if (loadingMessage) {
