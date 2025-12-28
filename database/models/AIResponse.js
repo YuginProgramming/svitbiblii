@@ -70,3 +70,4 @@ const AIResponse = sequelize.define('AIResponse', {
 
 export default AIResponse;
 
+

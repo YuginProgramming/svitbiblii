@@ -16,7 +16,10 @@ function transformBookTitle(title) {
   return title
     .replace(/ПЕРШЕ/g, '1')
     .replace(/ДРУГЕ/g, '2')
-    .replace(/ТРЕТЄ/g, '3');
+    .replace(/ТРЕТЄ/g, '3')
+    .replace(/\s*ПОСЛАННЯ\s*/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**

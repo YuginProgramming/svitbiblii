@@ -45,15 +45,17 @@ async function testBarclayComments() {
       const verseNumbers = verses.map(v => v.verseNumber);
       const verseTexts = verses.map(v => v.text);
 
-      // Get book info
-      if (firstVerse.book) {
-        bookName = firstVerse.book.title;
-        chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      // Always use findBookForChapter to ensure correct book name format from BOOKS_DATA
+      const { findBookForChapter } = await import('../navigation/bookData.js');
+      const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+      if (bookInfo) {
+        bookName = bookInfo.book.title; // This ensures we use the correct format (1, 2, 3 instead of ПЕРШЕ, ДРУГЕ, ТРЕТЄ)
+        chapterInBook = bookInfo.chapterInBook;
       } else {
-        const { findBookForChapter } = await import('../navigation/bookData.js');
-        const bookInfo = findBookForChapter(firstVerse.chapterIndex);
-        bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
-        chapterInBook = bookInfo ? bookInfo.chapterInBook : 1;
+        // Fallback only if chapterIndex is invalid
+        console.warn(`⚠️ Could not find book for chapterIndex ${firstVerse.chapterIndex}, using fallback`);
+        bookName = 'Невідома книга';
+        chapterInBook = 1;
       }
 
       console.log(`   Book: ${bookName}`);

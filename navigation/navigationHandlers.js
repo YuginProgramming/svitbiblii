@@ -667,11 +667,11 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
             ]
           } : undefined;
 
-          // Escape markdown to prevent parsing errors
-          const escapedChunk = aiService.escapeMarkdown(chunks[i]);
+          // Format AI response: remove unnecessary backslashes, preserve * for bold
+          const formattedChunk = aiService.formatAIResponse(chunks[i]);
           
           try {
-            await bot.sendMessage(chatId, escapedChunk, {
+            await bot.sendMessage(chatId, formattedChunk, {
               parse_mode: 'Markdown',
               reply_markup: keyboard
             });
@@ -852,11 +852,11 @@ export function setupNavigationHandlers(bot, userChapterIndex, sendInChunks) {
             ]
           } : undefined;
 
-          // Escape markdown to prevent parsing errors
-          const escapedChunk = aiService.escapeMarkdown(chunks[i]);
+          // Format AI response: remove unnecessary backslashes, preserve * for bold
+          const formattedChunk = aiService.formatAIResponse(chunks[i]);
           
           try {
-            await bot.sendMessage(chatId, escapedChunk, {
+            await bot.sendMessage(chatId, formattedChunk, {
               parse_mode: 'Markdown',
               reply_markup: keyboard
             });

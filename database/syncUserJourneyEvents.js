@@ -41,3 +41,4 @@ async function syncUserJourneyEventsTable() {
 // Run the sync
 syncUserJourneyEventsTable();
 
+

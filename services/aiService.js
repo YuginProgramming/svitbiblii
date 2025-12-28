@@ -135,6 +135,33 @@ class AIService {
   }
 
   /**
+   * Format AI response text for Telegram Markdown
+   * Removes unnecessary backslashes and preserves * for bold formatting
+   * @param {string} text - AI response text to format
+   * @returns {string} Formatted text ready for Telegram Markdown
+   */
+  formatAIResponse(text) {
+    // Remove all backslashes that escape characters (like \., \-, \(, \), etc.)
+    // But preserve intentional markdown formatting
+    let formatted = text
+      // Remove escaped periods, dashes, parentheses, etc.
+      .replace(/\\([\.\-\(\)\[\]\{\}\+\=\|\#\>\`\~\!])/g, '$1')
+      // Remove escaped underscores (but keep them for potential italic)
+      .replace(/\\_/g, '_')
+      // Keep * for bold formatting (don't escape them)
+      // Remove any escaped asterisks
+      .replace(/\\\*/g, '*')
+      // Convert **text** (standard Markdown bold) to *text* (Telegram Markdown bold)
+      .replace(/\*\*([^*]+)\*\*/g, '*$1*')
+      // Clean up any double spaces that might result
+      .replace(/  +/g, ' ')
+      // Trim whitespace
+      .trim();
+
+    return formatted;
+  }
+
+  /**
    * Split long message into chunks
    * @param {string} text - Text to split
    * @param {number} maxLength - Maximum length per chunk
@@ -299,8 +326,9 @@ class AIService {
   /**
    * Generate Barclay comments response from database event
    * Reads event data from database, constructs prompt, calls AI, stores response
+   * Returns response from database (database is the source of truth)
    * @param {number} eventId - UserJourneyEvent ID
-   * @returns {Promise<string>} AI response text
+   * @returns {Promise<string>} AI response text from database
    */
   async generateBarclayResponse(eventId) {
     if (!this.model) {
@@ -323,6 +351,19 @@ class AIService {
       const metadata = event.metadata;
       if (!metadata || metadata.aiFeature !== 'barclay_comments') {
         throw new Error(`Event ${eventId} is not a Barclay comments request`);
+      }
+
+      // Check if response already exists in database (caching)
+      const existingResponse = await AIResponse.findOne({
+        where: {
+          eventId: eventId,
+          status: 'success'
+        }
+      });
+
+      if (existingResponse && existingResponse.responseText) {
+        console.log(`✅ Using cached response from database for event ${eventId}`);
+        return existingResponse.responseText;
       }
 
       // Build prompt from database data
@@ -397,8 +438,16 @@ class AIService {
       // Update event metadata with success status
       await userJourneyService.updateEventMetadata(eventId, prompt, 'success');
 
-      console.log(`✅ Generated Barclay response for event ${eventId} (${processingTime}ms)`);
-      return text;
+      // Reload the record from database to ensure we get the stored version
+      await aiResponseRecord.reload();
+
+      // Return response from database (database is the source of truth)
+      if (!aiResponseRecord.responseText) {
+        throw new Error('Response was not properly stored in database');
+      }
+
+      console.log(`✅ Generated and stored Barclay response for event ${eventId} (${processingTime}ms)`);
+      return aiResponseRecord.responseText;
 
     } catch (error) {
       // Calculate processing time even on error

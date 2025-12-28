@@ -183,7 +183,10 @@ bot.onText(/\/toc/, async (msg) => {
       const buttonText = book.title
         .replace(/ПЕРШЕ/g, '1')
         .replace(/ДРУГЕ/g, '2')
-        .replace(/ТРЕТЄ/g, '3');
+        .replace(/ТРЕТЄ/g, '3')
+        .replace(/\s*ПОСЛАННЯ\s*/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
       const callbackData = `book_${index}`;
       
       currentRow.push({ text: buttonText, callback_data: callbackData });

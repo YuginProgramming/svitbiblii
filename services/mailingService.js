@@ -306,13 +306,16 @@ class MailingService {
       const verseNumbers = verses.map(v => v.verseNumber);
       const verseTexts = verses.map(v => v.text);
 
-      if (firstVerse.book) {
-        bookName = firstVerse.book.title;
-        chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      // Always use findBookForChapter to ensure correct book name format from BOOKS_DATA
+      const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+      if (bookInfo) {
+        bookName = bookInfo.book.title; // This ensures we use the correct format (1, 2, 3 instead of ПЕРШЕ, ДРУГЕ, ТРЕТЄ)
+        chapterInBook = bookInfo.chapterInBook;
       } else {
-        const bookInfo = findBookForChapter(firstVerse.chapterIndex);
-        bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
-        chapterInBook = bookInfo ? bookInfo.chapterInBook : 1;
+        // Fallback only if chapterIndex is invalid
+        console.warn(`⚠️ Could not find book for chapterIndex ${chapterIndex}, using fallback`);
+        bookName = 'Невідома книга';
+        chapterInBook = 1;
       }
 
       // Create mailing iteration record in database
@@ -406,13 +409,16 @@ class MailingService {
       const verseNumbers = verses.map(v => v.verseNumber);
       const verseTexts = verses.map(v => v.text);
 
-      if (firstVerse.book) {
-        bookName = firstVerse.book.title;
-        chapterInBook = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+      // Always use findBookForChapter to ensure correct book name format from BOOKS_DATA
+      const bookInfo = findBookForChapter(firstVerse.chapterIndex);
+      if (bookInfo) {
+        bookName = bookInfo.book.title; // This ensures we use the correct format (1, 2, 3 instead of ПЕРШЕ, ДРУГЕ, ТРЕТЄ)
+        chapterInBook = bookInfo.chapterInBook;
       } else {
-        const bookInfo = findBookForChapter(firstVerse.chapterIndex);
-        bookName = bookInfo ? bookInfo.book.title : 'Невідома книга';
-        chapterInBook = bookInfo ? bookInfo.chapterInBook : 1;
+        // Fallback only if chapterIndex is invalid
+        console.warn(`⚠️ Could not find book for chapterIndex ${chapterIndex}, using fallback`);
+        bookName = 'Невідома книга';
+        chapterInBook = 1;
       }
 
       // Create mailing iteration record for dev user notification
