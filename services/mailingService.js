@@ -311,12 +311,28 @@ class MailingService {
       if (bookInfo) {
         bookName = bookInfo.book.title; // This ensures we use the correct format (1, 2, 3 instead of ПЕРШЕ, ДРУГЕ, ТРЕТЄ)
         chapterInBook = bookInfo.chapterInBook;
+        
+        // Verify: if firstVerse has book info, check if it matches
+        if (firstVerse.book) {
+          const calculatedChapter = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+          if (calculatedChapter !== chapterInBook) {
+            console.warn(`⚠️ Chapter number mismatch detected:`);
+            console.warn(`   Chapter index: ${firstVerse.chapterIndex}`);
+            console.warn(`   Assigned book: ${firstVerse.book.title} (startIndex: ${firstVerse.book.startIndex})`);
+            console.warn(`   Calculated from book: ${calculatedChapter}`);
+            console.warn(`   Correct from findBookForChapter: ${chapterInBook} (book: ${bookInfo.book.title})`);
+            console.warn(`   Using correct value: ${chapterInBook}`);
+          }
+        }
       } else {
         // Fallback only if chapterIndex is invalid
         console.warn(`⚠️ Could not find book for chapterIndex ${chapterIndex}, using fallback`);
         bookName = 'Невідома книга';
         chapterInBook = 1;
       }
+      
+      // Final verification log
+      console.log(`📧 Mailing data: ${bookName}, Chapter ${chapterInBook} (index ${chapterIndex}), Verses ${verseNumbers.join(', ')}`);
 
       // Create mailing iteration record in database
       let mailingIteration = null;
@@ -414,12 +430,28 @@ class MailingService {
       if (bookInfo) {
         bookName = bookInfo.book.title; // This ensures we use the correct format (1, 2, 3 instead of ПЕРШЕ, ДРУГЕ, ТРЕТЄ)
         chapterInBook = bookInfo.chapterInBook;
+        
+        // Verify: if firstVerse has book info, check if it matches
+        if (firstVerse.book) {
+          const calculatedChapter = firstVerse.chapterIndex - firstVerse.book.startIndex + 1;
+          if (calculatedChapter !== chapterInBook) {
+            console.warn(`⚠️ Chapter number mismatch detected (dev user):`);
+            console.warn(`   Chapter index: ${firstVerse.chapterIndex}`);
+            console.warn(`   Assigned book: ${firstVerse.book.title} (startIndex: ${firstVerse.book.startIndex})`);
+            console.warn(`   Calculated from book: ${calculatedChapter}`);
+            console.warn(`   Correct from findBookForChapter: ${chapterInBook} (book: ${bookInfo.book.title})`);
+            console.warn(`   Using correct value: ${chapterInBook}`);
+          }
+        }
       } else {
         // Fallback only if chapterIndex is invalid
         console.warn(`⚠️ Could not find book for chapterIndex ${chapterIndex}, using fallback`);
         bookName = 'Невідома книга';
         chapterInBook = 1;
       }
+      
+      // Final verification log
+      console.log(`📧 Dev user mailing data: ${bookName}, Chapter ${chapterInBook} (index ${chapterIndex}), Verses ${verseNumbers.join(', ')}`);
 
       // Create mailing iteration record for dev user notification
       let mailingIteration = null;
