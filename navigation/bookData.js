@@ -7,7 +7,7 @@
 export const BOOKS_DATA = [
   { title: "ЄВАНГЕЛІЄ ВІД МАТФЕЯ", startIndex: 2, chapterCount: 28 },
   { title: "ЄВАНГЕЛІЄ ВІД МАРКА", startIndex: 31, chapterCount: 16 },
-  { title: "ЄВАНГЕЛІЄ ВІД ЛУКИ", startIndex: 48, chapterCount: 24 },
+  { title: "ЄВАНГЕЛІЄ ВІД ЛУКИ", startIndex: 49, chapterCount: 24 },
   { title: "ЄВАНГЕЛІЄ ВІД ІОАННА", startIndex: 73, chapterCount: 21 },
   { title: "ДІЯННЯ АПОСТОЛІВ", startIndex: 95, chapterCount: 28 },
   { title: "ПОСЛАННЯ ЯКОВА", startIndex: 122, chapterCount: 5 },
