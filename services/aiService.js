@@ -148,11 +148,30 @@ class AIService {
       .replace(/\\([\.\-\(\)\[\]\{\}\+\=\|\#\>\`\~\!])/g, '$1')
       // Remove escaped underscores (but keep them for potential italic)
       .replace(/\\_/g, '_')
-      // Keep * for bold formatting (don't escape them)
-      // Remove any escaped asterisks
-      .replace(/\\\*/g, '*')
-      // Convert **text** (standard Markdown bold) to *text* (Telegram Markdown bold)
-      .replace(/\*\*([^*]+)\*\*/g, '*$1*')
+      // Remove any escaped asterisks first
+      .replace(/\\\*/g, '*');
+    
+    // Step 1: Protect all **text** patterns by replacing them with placeholders
+    const boldPlaceholders = [];
+    let placeholderIndex = 0;
+    formatted = formatted.replace(/\*\*((?:(?!\*\*)[\s\S])+?)\*\*/g, (match, content) => {
+      const placeholder = `___BOLD_PLACEHOLDER_${placeholderIndex}___`;
+      boldPlaceholders[placeholderIndex] = content;
+      placeholderIndex++;
+      return placeholder;
+    });
+    
+    // Step 2: Escape all remaining single asterisks (these might interfere with Telegram's parser)
+    formatted = formatted.replace(/\*/g, '\\*');
+    
+    // Step 3: Restore the bold patterns as *text* (Telegram Markdown bold)
+    boldPlaceholders.forEach((content, index) => {
+      const placeholder = `___BOLD_PLACEHOLDER_${index}___`;
+      formatted = formatted.replace(placeholder, `*${content}*`);
+    });
+    
+    // Final cleanup
+    formatted = formatted
       // Clean up any double spaces that might result
       .replace(/  +/g, ' ')
       // Trim whitespace
